@@ -25,23 +25,16 @@ function filter_overlapping_votes(bills)
             end
         end
     end
-    
-    println(length(overlap), " overlapping actions found...")
 
-    num = 0
     for (id1, id2) in overlap
         (haskey(bills, id1) && haskey(bills, id2)) || continue
 
         passed1 = get(bills[id1], "dateVote", -1)
         passed2 = get(bills[id2], "dateVote", -2)
         if passed1 == passed2
-            println("removing: $id1, $id2")
-            num += 1
             delete!(bills, id1)
         end
     end
-
-    println(num, " removed!")
 
     bills
 end
