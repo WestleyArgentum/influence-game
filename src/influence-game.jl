@@ -2,6 +2,7 @@
 
 module InfluenceGame
 
+using Base.Collections
 using JSON
 
 include("game.jl")

@@ -46,4 +46,13 @@ end
 function build_timeline(bills)
     bills_with_votes = filter_has_votes(bills)
     bill_unique = filter_overlapping_votes(bills_with_votes)
+
+    timeline = PriorityQueue()
+    for (aid, bill) in bill_unique
+        introduced = bill["dateIntroduced"]
+        enqueue!(timeline, ["introduced", aid], bill["dateIntroduced"])
+        enqueue!(timeline, ["vote", aid], bill["dateVote"])
+    end
+
+    timeline
 end
