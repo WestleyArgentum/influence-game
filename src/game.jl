@@ -8,8 +8,12 @@ type Game
         bills = JSON.parse(readall(bill_data_file))
         timeline = build_timeline(bills)
 
-        new(Dict(), bills, timeline)
+        new(Team[], bills, timeline)
     end
+end
+
+function create_team(g::Game, name)
+    last(push!(g.teams, Team(length(g.teams) + 1, name)))
 end
 
 add_lobbyist_to_team(g::Game, teamid, lobbyist) = add_lobbyist(g.teams[teamid], lobbyist)
@@ -55,4 +59,8 @@ function build_timeline(bills)
     end
 
     timeline
+end
+
+function step(g::Game)
+
 end
