@@ -1,14 +1,16 @@
 
 type Game
     teams
+    industries
     bills
     timeline
 
-    function Game(bill_data_file)
+    function Game(bill_data_file, industry_data_file)
         bills = JSON.parse(readall(bill_data_file))
+        industries = build_industry_list(industry_data_file)
         timeline = build_timeline(bills)
 
-        new(Team[], bills, timeline)
+        new(Team[], industries, bills, timeline)
     end
 end
 
@@ -16,7 +18,8 @@ function create_team(g::Game, name)
     last(push!(g.teams, Team(length(g.teams) + 1, name)))
 end
 
-add_lobbyist_to_team(g::Game, teamid, lobbyist) = add_lobbyist(g.teams[teamid], lobbyist)
+add_industry_to_team(g::Game, teamid, industry) = add_industries(g.teams[teamid], industry)
+add_industries_to_team(g::Game, teamid, industries) = add_industries(g.teams[teamid], industries)
 
 function filter_overlapping_votes(bills)
     overlap = Any[]
@@ -59,6 +62,11 @@ function build_timeline(bills)
     end
 
     timeline
+end
+
+function build_industry_list(industry_data_file)
+    data = JSON.parse(readall(industry_data_file))
+    { id => { "score" => 0, "events" => Any[] } for id in data }
 end
 
 function step(g::Game)

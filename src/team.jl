@@ -2,12 +2,18 @@
 type Team
     id
     name
-    lobbyists
+    industries
 
     score
     total_score
 
-    Team(id, name) = new(id, name, Dict(), Any[], 0)
+    Team(id, name) = new(id, name, Any[], Any[], 0)
 end
 
-add_lobbyist(t::Team, lobbyist) = (t.lobbyists[lobbyist.id] = lobbyist)
+add_industry(t::Team, industry) = push!(t.industries, industry)
+
+function add_industries(t::Team, industries)
+    for industry in industries
+        add_industry(t, industry)
+    end
+end
