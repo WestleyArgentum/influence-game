@@ -15,7 +15,7 @@ type Game
 end
 
 function create_team(g::Game, name)
-    last(push!(g.teams, Team(length(g.teams) + 1, name)))
+    last(push!(g.teams, Team(g, length(g.teams) + 1, name)))
 end
 
 add_industry_to_team(g::Game, teamid, industry) = add_industries(g.teams[teamid], industry)
