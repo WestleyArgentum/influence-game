@@ -66,12 +66,16 @@ end
 
 function build_industry_list(industry_data_file)
     data = JSON.parse(readall(industry_data_file))
-    { id => { "score" => 0, "events" => Any[] } for id in data }
+    { id => { "name" => name, "score" => 0, "events" => Any[] } for (id, name) in data }
 end
 
-function score_change(action_type, position)
+function score_change(action_type, action, position)
     if action_type == "vote"
-        position == "support" ? 12 : -6
+        if action["passed"]
+            position == "support" ? 12 : -6
+        else
+            position == "support" ? -6 : 12
+        end
     elseif action_type == "introduced"
         position == "support" ? 1 : 3
     end
@@ -80,7 +84,7 @@ end
 function score_industries(event, action, industries, position)
     for id in action["positions"][position]
         industry = industries[id]
-        industry["score"] += score_change(first(event), position)
+        industry["score"] += score_change(first(event), action, position)
         push!(industry["events"], event)
     end
 end
