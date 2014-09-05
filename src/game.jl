@@ -69,6 +69,30 @@ function build_industry_list(industry_data_file)
     { id => { "score" => 0, "events" => Any[] } for id in data }
 end
 
-function step(g::Game)
+function score_change(action_type, position)
+    if action_type == "vote"
+        position == "support" ? 12 : -6
+    elseif action_type == "introduced"
+        position == "support" ? 1 : 3
+    end
+end
 
+function score_industries(event, action, industries, position)
+    for id in action["positions"][position]
+        industry = industries[id]
+        industry["score"] += score_change(first(event), position)
+        push!(industry["events"], event)
+    end
+end
+
+function step(g::Game)
+    isempty(g.timeline) && return false
+
+    event = dequeue!(g.timeline)
+    action = g.bills[last(event)]
+
+    score_industries(event, action, g.industries, "support")
+    score_industries(event, action, g.industries, "opposed")
+
+    true
 end
