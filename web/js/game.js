@@ -1,5 +1,5 @@
 (function () {
-    var app = angular.module("influence-game", []);
+    var app = angular.module("influenceGame", []);
 
     app.controller("GameController", function() {
         this.teams = [];
