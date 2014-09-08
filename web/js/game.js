@@ -58,11 +58,13 @@
         };
 
         this.toggleIndustryInTeam = function(industry) {
-            var i = this.team.industries.indexOf(industry);
+            var industries = this.team.industries,
+                i = industries.indexOf(industry);
+
             if (i > -1) {
-                this.team.industries.splice(i, 1);
+                industries.splice(i, 1);
             } else {
-                this.team.industries.push(industry);
+                industries.length < 6 && industries.push(industry);
             }
         };
 

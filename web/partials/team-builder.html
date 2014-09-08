@@ -26,11 +26,11 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <h4>Industries on this team</h4>
+                        <h4>Industries on this team (select {{6 - teamBuilder.team.industries.length}} more)</h4>
                         <div class="list-group scrollable-list">
                             <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
                                 <div>
-                                    {{industry}}
+                                    {{game.industries[industry]}} <a class="close" ng-click="teamBuilder.toggleIndustryInTeam(industry)">&times;</a>
                                 </div>
                             </li>
                         </div>
