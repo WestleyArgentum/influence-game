@@ -18,7 +18,7 @@
         this.bills = {};
         this.timeline = [];
 
-        app.addTeams = function(teams) {
+        this.addTeams = function(teams) {
             this.teams = teams;
         };
 
@@ -31,6 +31,18 @@
 
     app.controller('TeamBuilderController', function() {
         this.teams = [];
+        this.team = {
+            industries: []
+        };
+
+        this.addTeam = function() {
+            this.teams.push(team);
+        };
+
+        this.submitTeams = function(game) {
+            game.addTeams(this.teams);
+            console.log("*** redirect to gameplay page ***");
+        };
     });
 
 })();

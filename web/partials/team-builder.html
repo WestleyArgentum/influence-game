@@ -1,1 +1,73 @@
 
+<div class="container">
+    <div class="row">
+        <div class="list-group col-sm-12">
+            <div class="list-group-item" ng-repeat="team in teamBuilder.teams">
+                <h3>{{team.name}}</h3>
+            </div>
+
+            <form name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate>
+                <h3>Create a team!</h3>
+
+                <div class="row">
+                    <fieldset class="form-group col-sm-4">
+                        <input ng-model="teamBuilder.team.name" class="form-control" placeholder="Team Name" required></input>
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4>Select Industries</h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h4>Industries on this team</h4>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    Empty Industry Slot
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <input type="submit" class="btn btn-primary pull-right" value="Add Team" />        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="list-group col-sm-12">
+            <input type="submit" class="btn btn-primary pull-right" value="Start Game" />
+        </div>
+    </div>
+</div>
