@@ -52,8 +52,22 @@
         };
 
         this.submitTeams = function(game) {
+
             game.addTeams(this.teams);
             console.log("*** redirect to gameplay page ***");
+        };
+
+        this.toggleIndustryInTeam = function(industry) {
+            var i = this.team.industries.indexOf(industry);
+            if (i > -1) {
+                this.team.industries.splice(i, 1);
+            } else {
+                this.team.industries.push(industry);
+            }
+        };
+
+        this.industryInTeam = function(industry) {
+            return this.team.industries.indexOf(industry) > -1;
         };
     });
 

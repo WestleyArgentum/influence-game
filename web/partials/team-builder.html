@@ -16,46 +16,21 @@
                 </div>
 
                 <div class="row">
-
                     <div class="col-sm-6">
-                        <h4>Select Industries</h4>        
+                        <h4>Select Industries</h4>
                         <div class="list-group scrollable-list">
-                            <li class="list-group-item" ng-repeat="(industryId, industryName) in game.industries">
+                            <a class="list-group-item" ng-repeat="(industryId, industryName) in game.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
                                 {{industryName}}
-                            </li>
+                            </a>
                         </div>
                     </div>
+
                     <div class="col-sm-6">
                         <h4>Industries on this team</h4>
                         <div class="list-group scrollable-list">
-                            <li class="list-group-item">
+                            <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
                                 <div>
-                                    Empty Industry Slot
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div>
-                                    Empty Industry Slot
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div>
-                                    Empty Industry Slot
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div>
-                                    Empty Industry Slot
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div>
-                                    Empty Industry Slot
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div>
-                                    Empty Industry Slot
+                                    {{industry}}
                                 </div>
                             </li>
                         </div>
