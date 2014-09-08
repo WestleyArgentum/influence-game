@@ -1,7 +1,18 @@
 (function () {
-    var app = angular.module("influenceGame", []);
+    var app = angular.module('influenceGame', ['ngRoute']);
 
-    app.controller("GameController", function() {
+    app.config(['$routeProvider', function($routeProvider) {
+        $routeProvider.when('/team-builder', {
+            templateUrl: 'partials/team-builder.html',
+            controller: 'TeamBuilderController',
+            controllerAs: 'teamBuilder'
+        }).
+        otherwise({
+            redirectTo: '/team-builder'
+        });
+    }]);
+
+    app.controller('GameController', function() {
         this.teams = [];
         this.industries = {};
         this.bills = {};
@@ -18,8 +29,7 @@
         };
     });
 
-
-    app.controller("TeamBuilderController", function() {
+    app.controller('TeamBuilderController', function() {
         this.teams = [];
     });
 
