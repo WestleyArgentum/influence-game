@@ -1,1 +1,5 @@
-
+.scrollable-list {
+    height: auto;
+    max-height: 250px;
+    overflow-x: hidden;
+}

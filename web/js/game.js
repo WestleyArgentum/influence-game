@@ -12,22 +12,34 @@
         });
     }]);
 
-    app.controller('GameController', function() {
-        this.teams = [];
-        this.industries = {};
-        this.bills = {};
-        this.timeline = [];
-
+    app.controller('GameController', ["$http", function($http) {
         this.addTeams = function(teams) {
             this.teams = teams;
         };
 
-        this.loadBills = function(file) {
+        this.loadBills = function(path) {
+            var that = this;
+            that.bills = {};
+
+            $http.get(path).success(function(data) {
+                that.bills = data;
+            });
         };
 
-        this.loadIndustries = function(file) {
+        this.loadIndustries = function(path) {
+            var that = this;
+            that.industries = {};
+
+            $http.get(path).success(function(data) {
+                that.industries = data;
+            });
         };
-    });
+
+        this.teams = [];
+        this.industries = this.loadIndustries("/data/112th-industries.json");
+        this.bills = this.loadBills("/data/112th-bills.json");
+        this.timeline = [];
+    }]);
 
     app.controller('TeamBuilderController', function() {
         this.teams = [];

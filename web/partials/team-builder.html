@@ -16,13 +16,18 @@
                 </div>
 
                 <div class="row">
+
                     <div class="col-sm-6">
-                        <h4>Select Industries</h4>
+                        <h4>Select Industries</h4>        
+                        <div class="list-group scrollable-list">
+                            <li class="list-group-item" ng-repeat="(industryId, industryName) in game.industries">
+                                {{industryName}}
+                            </li>
+                        </div>
                     </div>
                     <div class="col-sm-6">
                         <h4>Industries on this team</h4>
-
-                        <ul class="list-group">
+                        <div class="list-group scrollable-list">
                             <li class="list-group-item">
                                 <div>
                                     Empty Industry Slot
@@ -53,7 +58,7 @@
                                     Empty Industry Slot
                                 </div>
                             </li>
-                        </ul>
+                        </div>
                     </div>
                 </div>
 
