@@ -6,9 +6,7 @@
                 <h3>{{team.name}}</h3>
             </div>
 
-            <form name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate>
-                <h3>Create a team!</h3>
-
+            <form class="list-group-item" name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate>
                 <div class="row">
                     <fieldset class="form-group col-sm-4">
                         <input ng-model="teamBuilder.team.name" class="form-control" placeholder="Team Name" required></input>

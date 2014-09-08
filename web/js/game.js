@@ -42,17 +42,18 @@
     }]);
 
     app.controller('TeamBuilderController', function() {
-        this.teams = [];
-        this.team = {
-            industries: []
-        };
+        this.newTeam = function() {
+            return {
+                industries: []
+            }
+        }
 
         this.addTeam = function() {
-            this.teams.push(team);
+            this.teams.push(this.team);
+            this.team = this.newTeam();
         };
 
         this.submitTeams = function(game) {
-
             game.addTeams(this.teams);
             console.log("*** redirect to gameplay page ***");
         };
@@ -71,6 +72,9 @@
         this.industryInTeam = function(industry) {
             return this.team.industries.indexOf(industry) > -1;
         };
+
+        this.teams = [];
+        this.team = this.newTeam();
     });
 
 })();
