@@ -7,12 +7,17 @@
             controller: 'TeamBuilderController',
             controllerAs: 'teamBuilder'
         }).
+        when('/play-112th', {
+            templateUrl: 'partials/play-112th.html',
+            controller: 'GameController',
+            controllerAs: 'game'
+        }).
         otherwise({
             redirectTo: '/team-builder'
         });
     }]);
 
-    app.controller('GameController', ["$http", function($http) {
+    app.controller('GameController', ['$http', function($http) {
         this.addTeams = function(teams) {
             this.teams = teams;
         };
@@ -36,12 +41,12 @@
         };
 
         this.teams = [];
-        this.industries = this.loadIndustries("/data/112th-industries.json");
-        this.bills = this.loadBills("/data/112th-bills.json");
+        this.industries = this.loadIndustries('/data/112th-industries.json');
+        this.bills = this.loadBills('/data/112th-bills.json');
         this.timeline = [];
     }]);
 
-    app.controller('TeamBuilderController', function() {
+    app.controller('TeamBuilderController', ['$location', function($location) {
         this.newTeam = function() {
             return {
                 industries: []
@@ -55,7 +60,7 @@
 
         this.submitTeams = function(game) {
             game.addTeams(this.teams);
-            console.log("*** redirect to gameplay page ***");
+            $location.path('/play-112th')
         };
 
         this.toggleIndustryInTeam = function(industry) {
@@ -75,6 +80,6 @@
 
         this.teams = [];
         this.team = this.newTeam();
-    });
+    }]);
 
 })();
