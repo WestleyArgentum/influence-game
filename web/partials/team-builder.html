@@ -3,10 +3,31 @@
     <div class="row">
         <div class="list-group col-sm-12">
             <div class="list-group-item" ng-repeat="team in teamBuilder.teams">
-                <h3>{{team.name}}</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3>{{team.name}}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(0,3)">
+                                {{game.industries[industry]}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(3,6)">
+                                {{game.industries[industry]}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                    
             </div>
 
-            <form class="list-group-item" name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate>
+            <form class="list-group-item" name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate ng-validate>
                 <div class="row">
                     <fieldset class="form-group col-sm-4">
                         <input ng-model="teamBuilder.team.name" class="form-control" placeholder="Team Name" required></input>
