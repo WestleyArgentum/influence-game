@@ -2,6 +2,9 @@
 (function () {
     var app = angular.module('influenceGame', ['ngRoute']);
 
+    /*
+    Routes
+    */
     app.config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/team-builder', {
             templateUrl: 'partials/team-builder.html',
@@ -9,31 +12,33 @@
             controllerAs: 'teamBuilder'
         }).
         when('/play-112th', {
-            templateUrl: 'partials/play-112th.html',
-            controller: 'GameController',
-            controllerAs: 'game'
+            templateUrl: 'partials/play-112th.html'
         }).
         otherwise({
             redirectTo: '/team-builder'
         });
     }]);
 
+    /*
+    Game Controller
+    */
     app.controller('GameController', ['$http', function($http) {
+        var that = this;
+
         this.addTeams = function(teams) {
             this.teams = teams;
         };
 
-        this.loadBills = function(path) {
-            var that = this;
+        this.loadBills = function(path, cb) {
             that.bills = {};
 
             $http.get(path).success(function(data) {
                 that.bills = data;
+                cb();
             });
         };
 
         this.loadIndustries = function(path) {
-            var that = this;
             that.industries = {};
 
             $http.get(path).success(function(data) {
@@ -41,12 +46,43 @@
             });
         };
 
+        this.filterOverlappingVotes = function() {
+            var overlap = [],
+                actionIds = Object.getOwnPropertyNames(that.bills);
+
+            for (var i = 0; i < actionIds.length; ++i) {
+                for (var j = i + 1; j < actionIds.length; ++j) {
+                    var k1 = actionIds[i],
+                        k2 = actionIds[j],
+                        v1 = that.bills[k1],
+                        v2 = that.bills[k2];
+
+                    if (v1 && v2 &&
+                        v1['num'] == v2['num'] &&
+                        v1['prefix'] == v2['prefix'] &&
+                        v1['dateVote'] == v2['dateVote']) {
+
+                        delete that.bills[k1];
+                    }
+                }
+            }
+        };
+
+        this.buildTimeline = function() {
+
+        };
+
         this.teams = [];
-        this.industries = this.loadIndustries('/data/112th-industries.json');
-        this.bills = this.loadBills('/data/112th-bills.json');
         this.timeline = [];
+        this.industries = this.loadIndustries('/data/112th-industries.json');
+        this.bills = this.loadBills('/data/112th-bills.json', function() {
+            that.filterOverlappingVotes();
+        });
     }]);
 
+    /*
+    TeamBuilderController
+    */
     app.controller('TeamBuilderController', ['$location', '$http', function($location, $http) {
         this.newTeam = function() {
             return {
