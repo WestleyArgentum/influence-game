@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Cow Tippers",
+        "industries": [
+            "A1000",
+            "A2000",
+            "A3000",
+            "A3300",
+            "A0000",
+            "A4000"
+        ]
+    },
+    {
+        "name": "People who probably shouldn't have guns and bombs, but inexplicably do",
+        "industries": [
+            "LD100",
+            "X5000",
+            "T1200",
+            "JD100",
+            "J6500",
+            "J6200"
+        ]
+    },
+    {
+        "name": "Unions 1",
+        "industries": [
+            "L0000",
+            "L1000",
+            "L1100",
+            "L1200",
+            "L1300",
+            "L1400"
+        ]
+    },
+    {
+        "name": "Unions 2",
+        "industries": [
+            "L1500",
+            "L5000",
+            "LA100",
+            "LB100",
+            "LC100",
+            "LC150"
+        ]
+    }
+]

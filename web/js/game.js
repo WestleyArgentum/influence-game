@@ -47,7 +47,7 @@
         this.timeline = [];
     }]);
 
-    app.controller('TeamBuilderController', ['$location', function($location) {
+    app.controller('TeamBuilderController', ['$location', '$http', function($location, $http) {
         this.newTeam = function() {
             return {
                 industries: []
@@ -59,67 +59,23 @@
             this.team = this.newTeam();
         };
 
-        this.addRandomTeam = function() {
-            var randomTeamPool = [
-                {
-                    name: 'Cow Tippers',
-                    industries: [
-                        'A1000',
-                        'A2000',
-                        'A3000',
-                        'A3300',
-                        'A0000',
-                        'A4000'
-                    ]
-                },
-                {
-                    name: 'People who probably shouldn\'t have guns and bombs, but inexplicably do',
-                    industries: [
-                        'LD100',
-                        'X5000',
-                        'T1200',
-                        'JD100',
-                        'J6500',
-                        'J6200'
-                    ]
-                },
-                {
-                    name: 'Unions 1',
-                    industries: [
-                        'L0000',
-                        'L1000',
-                        'L1100',
-                        'L1200',
-                        'L1300',
-                        'L1400'
-                    ]
-                },
-                {
-                    name: 'Unions 2',
-                    industries: [
-                        'L1500',
-                        'L5000',
-                        'LA100',
-                        'LB100',
-                        'LC100',
-                        'LC150'
-                    ]
+        this.addRandomTeams = function(num) {
+            var that = this;
+            $http.get('/data/template-teams.json').success(function(randomTeamPool) {
+                for (var num_teams = 0; num_teams < num; ++num_teams) {
+                    // If the random team pool is exausted this loop will
+                    // run forever. Even if there are still available options
+                    // the loop might need to make an unreasonable number
+                    // of guesses.
+                    while (true) {
+                        var i = getRandomInt(0, randomTeamPool.length);
+                        if (arrayObjectIndexOf(that.teams, randomTeamPool[i]['name'], 'name') == -1) {
+                            that.teams.push(randomTeamPool[i]);
+                            break;
+                        }
+                    }
                 }
-            ];
-
-            // If the random team pool is exausted this loop will
-            // run forever. Even if there are still available options
-            // the loop might need to make an unreasonable number
-            // of guesses.
-            while (true) {
-                var i = getRandomInt(0, randomTeamPool.length);
-                console.log(i);
-                console.log(randomTeamPool[i]['name']);
-                if (arrayObjectIndexOf(this.teams, randomTeamPool[i]['name'], 'name') == -1) {
-                    this.teams.push(randomTeamPool[i]);
-                    break;
-                }
-            }
+            });
         };
 
         this.submitTeams = function(game) {
@@ -145,8 +101,7 @@
         this.teams = [];
         this.team = this.newTeam();
 
-        this.addRandomTeam();
-        this.addRandomTeam();
+        this.addRandomTeams(2);
     }]);
 
 })();
