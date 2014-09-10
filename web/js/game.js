@@ -26,9 +26,11 @@
         var that = this;
 
         this.teams = [];
-        this.timeline = [];
         this.industries = {};
         this.bills = {};
+        this.timeline = new PriorityQueue(function(l, r) {
+            return l.date - r.date;
+        });
 
         this.addTeams = function(teams) {
             this.teams = teams;
@@ -72,6 +74,27 @@
 
         this.buildTimeline = function() {
             this.filterOverlappingVotes();
+
+            for (aid in this.bills) {
+                if (!this.bills.hasOwnProperty(aid)) {
+                    continue;
+                }
+
+                this.timeline.enq({
+                    action: 'introduced',
+                    aid: aid,
+                    date: this.bills[aid]['dateIntroduced']
+                });
+
+                var dateVote = this.bills[aid]['dateVote'];
+                dateVote && this.timeline.enq({
+                    action: 'vote',
+                    aid: aid,
+                    date: dateVote
+                });
+            }
+
+            console.log(this.timeline);
         };
         
         this.loadResources = function() {
