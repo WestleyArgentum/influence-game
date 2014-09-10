@@ -25,24 +25,26 @@
     app.controller('GameController', ['$http', function($http) {
         var that = this;
 
+        this.teams = [];
+        this.timeline = [];
+        this.industries = {};
+        this.bills = {};
+
         this.addTeams = function(teams) {
             this.teams = teams;
         };
 
         this.loadBills = function(path, cb) {
-            that.bills = {};
-
             $http.get(path).success(function(data) {
                 that.bills = data;
                 cb();
             });
         };
 
-        this.loadIndustries = function(path) {
-            that.industries = {};
-
+        this.loadIndustries = function(path, cb) {
             $http.get(path).success(function(data) {
                 that.industries = data;
+                cb();
             });
         };
 
@@ -69,15 +71,29 @@
         };
 
         this.buildTimeline = function() {
+            this.filterOverlappingVotes();
+        };
+        
+        this.loadResources = function() {
+            // waiting for two independent datasets to load
+            var timelineSemaphore = 2;
 
+            this.loadBills('/data/112th-bills.json', function() {
+                --timelineSemaphore;
+                if (timelineSemaphore < 1) {
+                    that.buildTimeline();
+                }
+            });
+
+            this.loadIndustries('/data/112th-industries.json', function() {
+                --timelineSemaphore;
+                if (timelineSemaphore < 1) {
+                    that.buildTimeline();
+                }
+            });
         };
 
-        this.teams = [];
-        this.timeline = [];
-        this.industries = this.loadIndustries('/data/112th-industries.json');
-        this.bills = this.loadBills('/data/112th-bills.json', function() {
-            that.filterOverlappingVotes();
-        });
+        this.loadResources();
     }]);
 
     /*
