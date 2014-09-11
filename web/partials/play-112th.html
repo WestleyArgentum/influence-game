@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row nav">
             <div class="col-sm-3" ng-repeat="team in game.teams">
-                <li class="team-header">
+                <li class="team-header" ng-class="{team{{team.id}}: true}">
                     <div>{{team.name}}</div>
                     <div>{{game.calcScore(team.name)}}</div>
                 </li>
@@ -18,8 +18,19 @@
 
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="event in game.timeline">
-                    <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
-                    {{game.bills[event.aid].prefix}} {{game.bills[event.aid].num}} {{event.action}}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>
+                                <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
+                                {{game.bills[event.aid].prefix}} {{game.bills[event.aid].num}}
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            Pretend this is an awesome description with links to relevant pages of information about this bill...
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>

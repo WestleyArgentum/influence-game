@@ -12,3 +12,23 @@ body {
     font-size: 16px;
     text-align: center;
 }
+
+span.glyphicon {
+    font-size: 1.2em;
+}
+
+.team0 {
+    color: #00ff26;
+}
+
+.team1 {
+    color: #ff4000;
+}
+
+.team2 {
+    color: #08f;
+}
+
+.team3 {
+    color: #e500ff;
+}

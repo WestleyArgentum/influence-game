@@ -36,9 +36,6 @@
         this.industries = {};
         this.bills = {};
         this.timeline = [];
-        // this.timeline = new PriorityQueue(function(l, r) {
-        //     return l.date - r.date;
-        // });
 
         this.addTeams = function(teams) {
             this.teams = teams;
@@ -66,6 +63,11 @@
 
         this.initialize = function() {
             $location.path('/play-112th');
+
+            for (var i = 0; i < this.teams.length; ++i) {
+                this.teams[i]['id'] = i;
+            }
+
             this.filterUninvolvedBills();
             this.buildTimeline();
         };
