@@ -43,6 +43,12 @@
             this.teams = teams;
         };
 
+        this.calcScore = function(teamname) {
+            var i = arrayObjectIndexOf(this.teams, teamname, 'name');
+
+            return 0;
+        };
+
         this.loadBills = function(path, cb) {
             $http.get(path).success(function(data) {
                 that.bills = data;
