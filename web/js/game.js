@@ -20,9 +20,16 @@
     }]);
 
     /*
+    Initialization
+    */
+    app.run(['$location', function($location) {
+        $location.path('/');
+    }]);
+
+    /*
     Game Controller
     */
-    app.controller('GameController', ['$http', function($http) {
+    app.controller('GameController', ['$http', '$location', function($http, $location) {
         var that = this;
 
         this.teams = [];
@@ -50,6 +57,12 @@
             });
         };
 
+        this.initialize = function() {
+            $location.path('/play-112th');
+            this.filterUninvolvedBills();
+            this.buildTimeline();
+        };
+
         this.filterOverlappingVotes = function() {
             var overlap = [],
                 actionIds = Object.getOwnPropertyNames(that.bills);
@@ -72,10 +85,26 @@
             }
         };
 
+        this.filterUninvolvedBills = function() {
+            var teamIndustries = [];
+            for (var i = 0; i < this.teams.length; ++i) {
+                teamIndustries = teamIndustries.concat(this.teams[i]['industries']);
+            }
+
+            for (var aid in this.bills) {
+                var billIndustries = this.bills[aid]['positions']['support'].concat(this.bills[aid]['positions']['oppose']);
+
+
+                if ($(billIndustries).filter(teamIndustries).length < 1) {
+                    delete this.bills[aid];
+                }
+            }
+        };
+
         this.buildTimeline = function() {
             this.filterOverlappingVotes();
 
-            for (aid in this.bills) {
+            for (var aid in this.bills) {
                 if (!this.bills.hasOwnProperty(aid)) {
                     continue;
                 }
@@ -93,8 +122,6 @@
                     date: dateVote
                 });
             }
-
-            console.log(this.timeline);
         };
         
         this.loadResources = function() {
@@ -104,14 +131,14 @@
             this.loadBills('/data/112th-bills.json', function() {
                 --timelineSemaphore;
                 if (timelineSemaphore < 1) {
-                    that.buildTimeline();
+                    //that.buildTimeline();
                 }
             });
 
             this.loadIndustries('/data/112th-industries.json', function() {
                 --timelineSemaphore;
                 if (timelineSemaphore < 1) {
-                    that.buildTimeline();
+                    //that.buildTimeline();
                 }
             });
         };
@@ -122,7 +149,7 @@
     /*
     TeamBuilderController
     */
-    app.controller('TeamBuilderController', ['$location', '$http', function($location, $http) {
+    app.controller('TeamBuilderController', ['$http', function($http) {
         this.newTeam = function() {
             return {
                 industries: []
@@ -155,7 +182,7 @@
 
         this.submitTeams = function(game) {
             game.addTeams(this.teams);
-            $location.path('/play-112th')
+            game.initialize();
         };
 
         this.toggleIndustryInTeam = function(industry) {
