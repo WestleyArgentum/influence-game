@@ -17,8 +17,9 @@
         <div class="list-group col-sm-12">
 
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="bill in game.bills">
-                    {{bill.prefix}} {{bill.num}} {{bill.actionId}}
+                <li class="list-group-item" ng-repeat="event in game.timeline">
+                    <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
+                    {{game.bills[event.aid].prefix}} {{game.bills[event.aid].num}} {{event.action}}
                 </li>
             </ul>
         </div>

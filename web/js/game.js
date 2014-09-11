@@ -35,9 +35,10 @@
         this.teams = [];
         this.industries = {};
         this.bills = {};
-        this.timeline = new PriorityQueue(function(l, r) {
-            return l.date - r.date;
-        });
+        this.timeline = [];
+        // this.timeline = new PriorityQueue(function(l, r) {
+        //     return l.date - r.date;
+        // });
 
         this.addTeams = function(teams) {
             this.teams = teams;
@@ -115,18 +116,40 @@
                     continue;
                 }
 
-                this.timeline.enq({
+                this.timeline.push({
                     action: 'introduced',
                     aid: aid,
                     date: this.bills[aid]['dateIntroduced']
                 });
 
                 var dateVote = this.bills[aid]['dateVote'];
-                dateVote && this.timeline.enq({
+                dateVote && this.timeline.push({
                     action: 'vote',
                     aid: aid,
                     date: dateVote
                 });
+            }
+
+            this.timeline.sort(function(l, r) {
+                return l.date - r.date;
+            });
+        };
+
+        this.glyphForBill = function(aid, event) {
+            if (event == 'introduced') {
+                return 'glyphicon-file';
+            }
+
+            var bill = this.bills[aid];
+            switch (bill['passed']) {
+                case true:
+                    return 'glyphicon-thumbs-up';
+
+                case false:
+                    return 'glyphicon-thumbs-down';
+
+                default:
+                    return 'glyphicon-file';
             }
         };
         
