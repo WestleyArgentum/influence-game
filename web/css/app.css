@@ -3,3 +3,7 @@
     max-height: 250px;
     overflow-x: hidden;
 }
+
+body {
+    padding-top: 50px;
+}
