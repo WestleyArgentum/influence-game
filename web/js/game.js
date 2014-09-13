@@ -39,12 +39,39 @@
 
         this.addTeams = function(teams) {
             this.teams = teams;
+            for (var i = 0; i < this.teams.length; ++i) {
+                this.teams[i]['id'] = i;
+            }
         };
 
-        this.calcScore = function(teamname) {
-            var i = arrayObjectIndexOf(this.teams, teamname, 'name');
-
+        this.scoreTeam = function(teamId) {
+            var team = this.teams[teamId];
             return 0;
+        };
+
+        this.scoreEventForTeam = function(event, teamId) {
+            var team = this.teams[teamId],
+                bill = this.bills[event.aid],
+                score = 0,
+                supportScore = 1,  // introduced, support
+                opposeScore = 3;  // introduced, oppose
+
+            if (event.action == 'vote') {
+                if (bill.passed) {
+                    supportScore = 12;  // passed, support
+                    opposeScore = -6;  // passed, oppose
+                } else {
+                    supportScore = -6;  // failed, support
+                    opposeScore = 12;  // failed, oppose
+                }
+            }
+
+            for (var i = 0; i < team.industries.length; ++i) {
+                bill.positions.support.indexOf(team.industries[i]) > -1 && (score += supportScore);
+                bill.positions.opposed.indexOf(team.industries[i]) > -1 && (score += opposeScore);
+            }
+
+            return score;
         };
 
         this.loadBills = function(path, cb) {
@@ -63,10 +90,6 @@
 
         this.initialize = function() {
             $location.path('/play-112th');
-
-            for (var i = 0; i < this.teams.length; ++i) {
-                this.teams[i]['id'] = i;
-            }
 
             this.filterUninvolvedBills();
             this.buildTimeline();
