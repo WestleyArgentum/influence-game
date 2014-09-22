@@ -45,8 +45,11 @@
         };
 
         this.scoreTeam = function(teamId) {
-            var team = this.teams[teamId];
-            return 0;
+            var score = 0;
+            for (var i = 0; i < this.timeline.length; ++i) {
+                score += this.scoreEventForTeam(this.timeline[i], teamId);
+            }
+            return score;
         };
 
         this.scoreEventForTeam = function(event, teamId) {
