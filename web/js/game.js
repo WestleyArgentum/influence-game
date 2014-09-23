@@ -14,6 +14,11 @@
         when('/play-112th', {
             templateUrl: 'partials/play-112th.html'
         }).
+        when('/results', {
+            templateUrl: 'partials/results.html',
+            controller: 'ResultsController',
+            controllerAs: 'results'
+        }).
         otherwise({
             redirectTo: '/team-builder'
         });
@@ -36,6 +41,10 @@
         this.industries = {};
         this.bills = {};
         this.timeline = [];
+
+        this.finishGame = function() {
+            $location.path('/results');
+        }
 
         this.addTeams = function(teams) {
             this.teams = teams;
@@ -261,6 +270,12 @@
         this.team = this.newTeam();
 
         this.addRandomTeams(2);
+    }]);
+
+    app.controller('ResultsController', ['$http', function($http) {
+        this.restart = function() {
+            window.location.reload();
+        }
     }]);
 
 })();
