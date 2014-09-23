@@ -1,6 +1,6 @@
 
 (function () {
-    var app = angular.module('influenceGame', ['ngRoute']);
+    var app = angular.module('influenceGame', ['ngRoute', 'ui.bootstrap']);
 
     /*
     Routes
