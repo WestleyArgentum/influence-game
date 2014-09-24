@@ -1,13 +1,24 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="nav navbar-form navbar-right">
-            <input type="submit" class="btn btn-primary" ng-click="results.restart()" value="New Game" />
+        <div class="nav">
+            <div class="row">
+                <div class="navbar-form navbar-right">
+                    <input type="submit" class="btn btn-primary" ng-click="results.restart()" value="New Game" />
+                </div>
+            </div>
         </div>
     </div>
 </nav>
 
 <div class="container">
     <div class="row">
+        <tabset>
+            <tab ng-repeat="team in game.teams" heading="{{team.name}}" active="team.active">
+                {{team.industries}}
+            </tab>
+        </tabset>
 
     </div>
+
+
 </div>
