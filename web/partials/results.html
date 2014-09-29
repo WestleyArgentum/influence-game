@@ -2,8 +2,10 @@
     <div class="container">
         <div class="nav">
             <div class="row">
-                <div class="navbar-form navbar-right">
-                    <input type="submit" class="btn btn-primary" ng-click="results.restart()" value="New Game" />
+                <div class="col-sm-12">
+                    <div class="navbar-form navbar-right">
+                        <input type="submit" class="btn btn-primary" ng-click="results.restart()" value="New Game" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -12,12 +14,29 @@
 
 <div class="container">
     <div class="row">
-        <tabset>
-            <tab ng-repeat="team in game.teams" heading="{{team.name}}" active="team.active">
-                {{team.industries}}
-            </tab>
-        </tabset>
-
+        <div class="col-sm-12">
+            <tabset>
+                <tab ng-repeat="team in game.teams" heading="{{team.name}}" active="team.active">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h4>Groups on this team</h4>
+                        </div>
+                        <div class="col-sm-6">
+                            <h4>Breakdown</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <tabset class="tabs-left" type="pills" vertical="true">
+                                    <tab ng-repeat="industry in team.industries" heading="{{game.industries[industry]}}">
+                                        beep boop bop
+                                    </tab>
+                            </tabset>
+                        </div>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
     </div>
 
 

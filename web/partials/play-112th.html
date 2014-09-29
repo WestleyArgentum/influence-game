@@ -3,8 +3,10 @@
     <div class="container">
         <div class="nav">
             <div class="row">
-                <div class="navbar-form navbar-right">
-                    <input type="submit" class="btn btn-primary" ng-click="game.finishGame()" value="Results" />
+                <div class="col-sm-12">
+                    <div class="navbar-form navbar-right">
+                        <input type="submit" class="btn btn-primary" ng-click="game.finishGame()" value="Results" />
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -22,8 +24,6 @@
 <div class="container">
     <div class="row">
         <div class="list-group col-sm-12">
-
-            <!-- <ul class="list-group"> -->
                 <li class="list-group-item" ng-repeat="event in game.timeline">
                     <div class="row">
                         <div class="col-sm-6">
@@ -44,7 +44,6 @@
                         </div>
                     </div>
                 </li>
-<!--             </ul> -->
         </div>
     </div>
 </div>
