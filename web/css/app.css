@@ -4,8 +4,16 @@
     overflow-x: hidden;
 }
 
-body {
+.body-team-builder {
     padding-top: 50px;
+}
+
+.body-game {
+    padding-top: 100px;
+}
+
+.body-results {
+    padding-top: 60px;
 }
 
 .team-score {
