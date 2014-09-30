@@ -19,14 +19,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(0,3)">
+                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
                                 {{game.industries[industry]}}
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(3,6)">
+                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
                                 {{game.industries[industry]}}
                             </li>
                         </ul>
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-sm-6">
-                        <h4>Groups on this team (select {{6 - teamBuilder.team.industries.length}} more)</h4>
+                        <h4>Groups on this team</h4>
                         <div class="list-group">
                             <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
                                 <div>

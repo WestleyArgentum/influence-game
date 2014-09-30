@@ -215,7 +215,9 @@
     /*
     TeamBuilderController
     */
-    app.controller('TeamBuilderController', ['$http', function($http) {
+    app.controller('TeamBuilderController', ['$http', '$scope', function($http, $scope) {
+        $scope.Math = window.Math;
+
         this.newTeam = function() {
             return {
                 industries: []
@@ -258,7 +260,7 @@
             if (i > -1) {
                 industries.splice(i, 1);
             } else {
-                industries.length < 6 && industries.push(industry);
+                industries.push(industry);
             }
         };
 
