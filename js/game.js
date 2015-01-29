@@ -201,7 +201,7 @@
                 }
             });
 
-            this.loadIndustries('/data/112th-industries.json', function() {
+            this.loadIndustries('/data/crp-categories.json', function() {
                 --timelineSemaphore;
                 if (timelineSemaphore < 1) {
                     //that.buildTimeline();
