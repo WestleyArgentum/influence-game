@@ -191,22 +191,8 @@
         };
         
         this.loadResources = function() {
-            // waiting for two independent datasets to load
-            var timelineSemaphore = 2;
-
-            this.loadBills('/data/112th-bills.json', function() {
-                --timelineSemaphore;
-                if (timelineSemaphore < 1) {
-                    //that.buildTimeline();
-                }
-            });
-
-            this.loadIndustries('/data/crp-categories.json', function() {
-                --timelineSemaphore;
-                if (timelineSemaphore < 1) {
-                    //that.buildTimeline();
-                }
-            });
+            this.loadBills('/data/112th-bills.json', function() {});
+            this.loadIndustries('/data/crp-categories.json', function() {});
         };
 
         this.loadResources();
