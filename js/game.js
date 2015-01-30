@@ -136,6 +136,10 @@
             }
 
             for (var aid in this.bills) {
+                if (!this.bills.hasOwnProperty(aid)) {
+                    continue;
+                }
+
                 var billIndustries = this.bills[aid]['positions']['support'].concat(this.bills[aid]['positions']['oppose']);
 
 
