@@ -210,8 +210,9 @@
     /*
     TeamBuilderController
     */
-    app.controller('TeamBuilderController', ['$http', '$scope', function($http, $scope) {
+    app.controller('TeamBuilderController', ['$scope', '$http', 'gameModel', function($scope, $http, gameModel) {
         $scope.Math = window.Math;
+        $scope.gameModel = gameModel;
 
         this.newTeam = function() {
             return {

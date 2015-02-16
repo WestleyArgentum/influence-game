@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3" ng-repeat="team in game.teams">
+                <div class="col-sm-3" ng-repeat="team in gameModel.teams">
                     <li class="team-score" ng-class="{team{{team.id}}: true}">
                         <div>{{team.name}}</div>
                         <div>{{game.scoreTeam(team.id)}}</div>
@@ -24,12 +24,12 @@
 <div class="body-game container">
     <div class="row">
         <div class="list-group col-sm-12">
-                <li class="list-group-item" ng-repeat="event in game.timeline">
+                <li class="list-group-item" ng-repeat="event in gameModel.timeline">
                     <div class="row">
                         <div class="col-sm-6">
                             <h4>
                                 <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
-                                {{game.bills[event.aid].prefix}} {{game.bills[event.aid].num}}
+                                {{gameModel.bills[event.aid].prefix}} {{gameModel.bills[event.aid].num}}
                             </h4>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3 team-score" ng-repeat="team in game.teams" ng-class="{team{{team.id}}: true}">
+                        <div class="col-sm-3 team-score" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
                         {{game.scoreEventForTeam(event, team.id);}}
                         </div>
                     </div>
