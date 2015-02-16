@@ -20,14 +20,14 @@
                     <div class="col-sm-6">
                         <ul class="list-group">
                             <li class="list-group-item" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
-                                {{game.industries[industry]}}
+                                {{gameModel.industries[industry]}}
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-group">
                             <li class="list-group-item" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
-                                {{game.industries[industry]}}
+                                {{gameModel.industries[industry]}}
                             </li>
                         </ul>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="col-sm-6">
                         <h4>Select Groups</h4>
                         <div class="list-group scrollable-list">
-                            <a class="list-group-item" ng-repeat="(industryId, industryName) in game.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
+                            <a class="list-group-item" ng-repeat="(industryId, industryName) in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
                                 {{industryName}}
                             </a>
                         </div>
@@ -56,7 +56,7 @@
                         <div class="list-group">
                             <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
                                 <div>
-                                    {{game.industries[industry]}} <a class="close" ng-click="teamBuilder.toggleIndustryInTeam(industry)">&times;</a>
+                                    {{gameModel.industries[industry]}} <a class="close" ng-click="teamBuilder.toggleIndustryInTeam(industry)">&times;</a>
                                 </div>
                             </li>
                         </div>

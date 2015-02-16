@@ -32,38 +32,43 @@
     }]);
 
     /*
-    Game Controller
+    Game Service
     */
-    app.controller('GameController', ['$http', '$location', function($http, $location) {
-        var that = this;
-
+    app.service("gameModel", [function() {
         this.teams = [];
         this.industries = {};
         this.bills = {};
         this.timeline = [];
+    }]);
+
+    /*
+    Game Controller
+    */
+    app.controller('GameController', ['$scope', '$http', '$location', 'gameModel', function($scope, $http, $location, gameModel) {
+        $scope.gameModel = gameModel;
 
         this.finishGame = function() {
             $location.path('/results');
         }
 
         this.addTeams = function(teams) {
-            this.teams = teams;
-            for (var i = 0; i < this.teams.length; ++i) {
-                this.teams[i]['id'] = i;
+            gameModel.teams = teams;
+            for (var i = 0; i < gameModel.teams.length; ++i) {
+                gameModel.teams[i]['id'] = i;
             }
         };
 
         this.scoreTeam = function(teamId) {
             var score = 0;
-            for (var i = 0; i < this.timeline.length; ++i) {
-                score += this.scoreEventForTeam(this.timeline[i], teamId);
+            for (var i = 0; i < gameModel.timeline.length; ++i) {
+                score += this.scoreEventForTeam(gameModel.timeline[i], teamId);
             }
             return score;
         };
 
         this.scoreEventForTeam = function(event, teamId) {
-            var team = this.teams[teamId],
-                bill = this.bills[event.aid],
+            var team = gameModel.teams[teamId],
+                bill = gameModel.bills[event.aid],
                 score = 0,
                 supportScore = 1,  // introduced, support
                 opposeScore = 3;  // introduced, oppose
@@ -88,14 +93,14 @@
 
         this.loadBills = function(path, cb) {
             $http.get(path).success(function(data) {
-                that.bills = data;
+                gameModel.bills = data;
                 cb();
             });
         };
 
         this.loadIndustries = function(path, cb) {
             $http.get(path).success(function(data) {
-                that.industries = data;
+                gameModel.industries = data;
                 cb();
             });
         };
@@ -109,21 +114,21 @@
 
         this.filterOverlappingVotes = function() {
             var overlap = [],
-                actionIds = Object.getOwnPropertyNames(that.bills);
+                actionIds = Object.getOwnPropertyNames(gameModel.bills);
 
             for (var i = 0; i < actionIds.length; ++i) {
                 for (var j = i + 1; j < actionIds.length; ++j) {
                     var k1 = actionIds[i],
                         k2 = actionIds[j],
-                        v1 = that.bills[k1],
-                        v2 = that.bills[k2];
+                        v1 = gameModel.bills[k1],
+                        v2 = gameModel.bills[k2];
 
                     if (v1 && v2 &&
                         v1['num'] == v2['num'] &&
                         v1['prefix'] == v2['prefix'] &&
                         v1['dateVote'] == v2['dateVote']) {
 
-                        delete that.bills[k1];
+                        delete gameModel.bills[k1];
                     }
                 }
             }
@@ -131,20 +136,20 @@
 
         this.filterUninvolvedBills = function() {
             var teamIndustries = [];
-            for (var i = 0; i < this.teams.length; ++i) {
-                teamIndustries = teamIndustries.concat(this.teams[i]['industries']);
+            for (var i = 0; i < gameModel.teams.length; ++i) {
+                teamIndustries = teamIndustries.concat(gameModel.teams[i]['industries']);
             }
 
-            for (var aid in this.bills) {
-                if (!this.bills.hasOwnProperty(aid)) {
+            for (var aid in gameModel.bills) {
+                if (!gameModel.bills.hasOwnProperty(aid)) {
                     continue;
                 }
 
-                var billIndustries = this.bills[aid]['positions']['support'].concat(this.bills[aid]['positions']['oppose']);
+                var billIndustries = gameModel.bills[aid]['positions']['support'].concat(gameModel.bills[aid]['positions']['oppose']);
 
 
                 if ($(billIndustries).filter(teamIndustries).length < 1) {
-                    delete this.bills[aid];
+                    delete gameModel.bills[aid];
                 }
             }
         };
@@ -152,26 +157,26 @@
         this.buildTimeline = function() {
             this.filterOverlappingVotes();
 
-            for (var aid in this.bills) {
-                if (!this.bills.hasOwnProperty(aid)) {
+            for (var aid in gameModel.bills) {
+                if (!gameModel.bills.hasOwnProperty(aid)) {
                     continue;
                 }
 
-                this.timeline.push({
+                gameModel.timeline.push({
                     action: 'introduced',
                     aid: aid,
-                    date: this.bills[aid]['dateIntroduced']
+                    date: gameModel.bills[aid]['dateIntroduced']
                 });
 
-                var dateVote = this.bills[aid]['dateVote'];
-                dateVote && this.timeline.push({
+                var dateVote = gameModel.bills[aid]['dateVote'];
+                dateVote && gameModel.timeline.push({
                     action: 'vote',
                     aid: aid,
                     date: dateVote
                 });
             }
 
-            this.timeline.sort(function(l, r) {
+            gameModel.timeline.sort(function(l, r) {
                 return l.date - r.date;
             });
         };
@@ -181,7 +186,7 @@
                 return 'glyphicon-file';
             }
 
-            var bill = this.bills[aid];
+            var bill = gameModel.bills[aid];
             switch (bill['passed']) {
                 case true:
                     return 'glyphicon-thumbs-up';
