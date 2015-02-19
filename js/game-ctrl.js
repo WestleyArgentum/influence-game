@@ -49,23 +49,8 @@
             return score;
         };
 
-        this.loadBills = function(path, cb) {
-            $http.get(path).success(function(data) {
-                gameModel.bills = data;
-                cb();
-            });
-        };
-
-        this.loadIndustries = function(path, cb) {
-            $http.get(path).success(function(data) {
-                gameModel.industries = data;
-                cb();
-            });
-        };
-
         this.initialize = function() {
-            $location.path('/play-112th');
-
+            this.addTeams(gameModel.teams)
             this.filterUninvolvedBills();
             this.buildTimeline();
         };
@@ -155,13 +140,8 @@
                     return 'glyphicon-file';
             }
         };
-        
-        this.loadResources = function() {
-            this.loadBills('/data/112th-bills.json', function() {});
-            this.loadIndustries('/data/crp-categories.json', function() {});
-        };
 
-        this.loadResources();
+        this.initialize();
     }]);
 
 })();

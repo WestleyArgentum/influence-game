@@ -13,7 +13,9 @@
             controllerAs: 'teamBuilder'
         }).
         when('/play-112th', {
-            templateUrl: 'partials/play-112th.html'
+            templateUrl: 'partials/play-112th.html',
+            controller: 'GameController',
+            controllerAs: 'game'
         }).
         when('/results', {
             templateUrl: 'partials/results.html',

@@ -1,6 +1,7 @@
 (function () {
 
-    angular.module('influenceGame').controller('TeamBuilderController', ['$scope', '$http', 'gameModel', function($scope, $http, gameModel) {
+    angular.module('influenceGame').controller('TeamBuilderController', ['$scope', '$http', '$location', 'gameModel', function($scope, $http, $location, gameModel) {
+        var that = this;
         $scope.Math = window.Math;
         $scope.gameModel = gameModel;
 
@@ -34,10 +35,28 @@
             });
         };
 
-        this.submitTeams = function(game) {
-            game.addTeams(this.teams);
-            game.initialize();
-        };
+        this.load_resources = function(cb) {
+            resources = 2;
+
+            $http.get('/data/112th-bills.json').success(function(data) {
+                gameModel.bills = data;
+                --resources <= 0 && cb();
+            });
+            $http.get('/data/crp-categories.json').success(function(data) {
+                gameModel.industries = data;
+                --resources <= 0 && cb();
+            });
+        }
+
+        this.initialize = function() {
+            this.load_resources(function() {
+                that.addRandomTeams(2);
+            });
+        }
+
+        this.playGame = function() {
+            $location.path('/play-112th');
+        }
 
         this.toggleIndustryInTeam = function(industry) {
             var industries = this.team.industries,
@@ -57,7 +76,7 @@
         this.teams = [];
         this.team = this.newTeam();
 
-        this.addRandomTeams(2);
+        this.initialize();
     }]);
 
 })();
