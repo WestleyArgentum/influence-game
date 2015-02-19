@@ -55,6 +55,7 @@
         }
 
         this.playGame = function() {
+            gameModel.teams = this.teams;
             $location.path('/play-112th');
         }
 
