@@ -6,7 +6,7 @@ bill_files_out = ["112th-bills.json", "113th-bills.json"]
 
 bill_sets = [ JSON.parse(readall(f)) for f in bill_files ]
 
-crp_categories = JSON.parse(readall("crp-categories.json"))
+crp_category_map = JSON.parse(readall("crp-category-map.json"))
 
 for bills in bill_sets
     for (aid, bill) in bills
@@ -14,10 +14,10 @@ for bills in bill_sets
         oppose = bill["positions"]["oppose"]
 
         map!(support) do catcode
-            crp_categories[catcode]["Industry"]
+            crp_category_map[catcode]["Industry"]
         end
         map!(oppose) do catcode
-            crp_categories[catcode]["Industry"]
+            crp_category_map[catcode]["Industry"]
         end
 
         bill["positions"]["support"] = unique(support)
@@ -30,3 +30,10 @@ for i in 1:length(bill_files_out)
     write(outfile, json(bill_sets[i]))
     close(outfile)
 end
+
+crp_categories = { ind["Industry"] for (c, ind) in crp_category_map }
+crp_categories = unique(crp_categories)
+
+outfile = open("crp-categories.json", "w")
+write(outfile, json(crp_categories))
+close(outfile)
