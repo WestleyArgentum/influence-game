@@ -11,11 +11,6 @@
             }
         };
 
-        this.addTeam = function() {
-            gameModel.teams.push(this.team);
-            this.team = this.newTeam();
-        };
-
         this.addRandomTeams = function(num) {
             $http.get('/data/template-teams.json').success(function(randomTeamPool) {
                 for (var num_teams = 0; num_teams < num; ++num_teams) {
@@ -55,6 +50,7 @@
         }
 
         this.playGame = function() {
+            gameModel.teams.push(this.team);
             $location.path('/play-112th');
         }
 
