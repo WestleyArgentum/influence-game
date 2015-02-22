@@ -2,45 +2,43 @@
     {
         "name": "Cow Tippers",
         "industries": [
-            "A1000",
-            "A2000",
-            "A3000",
-            "A3300",
-            "A0000",
-            "A4000"
+            "Dairy",
+            "Livestock",
+            "Agricultural Services/Products",
+            "Misc Agriculture",
+            "Crop Production & Basic Processing",
+            "Poultry & Eggs"
         ]
     },
     {
         "name": "People who probably shouldn't have guns and bombs, but inexplicably do",
         "industries": [
-            "LD100",
-            "X5000",
-            "T1200",
-            "JD100",
-            "J6500",
-            "J6200"
+            "Gun Rights",
+            "Misc Defense",
+            "Defense Aerospace",
+            "Defense Electronics",
+            "Foreign & Defense Policy"
         ]
     },
     {
-        "name": "Unions 1",
+        "name": "Capitalists",
         "industries": [
-            "L0000",
-            "L1000",
-            "L1100",
-            "L1200",
-            "L1300",
-            "L1400"
+            "Securities & Investment",
+            "Commercial Banks",
+            "Misc Finance",
+            "Savings & Loans",
+            "Finance/Credit Companies",
+            "Credit Unions"
         ]
     },
     {
-        "name": "Unions 2",
+        "name": "Unions",
         "industries": [
-            "L1500",
-            "L5000",
-            "LA100",
-            "LB100",
-            "LC100",
-            "LC150"
+            "Misc Unions",
+            "Public Sector Unions",
+            "Building Trade Unions",
+            "Industrial Unions",
+            "Transportation Unions"
         ]
     }
 ]
