@@ -49,8 +49,8 @@
 
                 <div class="col-sm-12">
                     <div class="list-group scrollable-list">
-                        <a class="list-group-item" ng-repeat="(industryId, industryName) in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
-                            {{industryName}}
+                        <a class="list-group-item" ng-repeat="industry in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industry)}" ng-click="teamBuilder.toggleIndustryInTeam(industry)">
+                            {{industry}}
                         </a>
                     </div>
                 </div>
