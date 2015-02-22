@@ -8,11 +8,36 @@
 
 <div class="body-team-builder container">
     <div class="row">
-        <div class="list-group col-sm-12">
-            <h2>Select Teams</h2>
-            <div class="list-group-item" ng-repeat="team in teamBuilder.teams">
+        <div class="col-sm-6">
+            <h2>Build Your Team</h2>
+            
+            <div class="col-sm-12">
+                <h4>Groups on this team</h4>
+                <div class="list-group">
+                    <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
+                        <div>
+                            {{industry}} <a class="close" ng-click="teamBuilder.toggleIndustryInTeam(industry)">&times;</a>
+                        </div>
+                    </li>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <h4>Select Groups</h4>
+                <div class="list-group scrollable-list">
+                    <a class="list-group-item" ng-repeat="(industryId, industryName) in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
+                        {{industryName}}
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        <div class="list-group col-sm-6">
+            <h2>Opponents</h2>
+
+            <div class="list-group-item" ng-repeat="team in gameModel.teams">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <h3>{{team.name}}</h3>
                     </div>
                 </div>
@@ -20,58 +45,20 @@
                     <div class="col-sm-6">
                         <ul class="list-group">
                             <li class="list-group-item" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
-                                {{gameModel.industries[industry]}}
+                                {{industry}}
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-group">
                             <li class="list-group-item" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
-                                {{gameModel.industries[industry]}}
+                                {{industry}}
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <form class="list-group-item" name="teamForm" ng-submit="teamBuilder.addTeam()" novalidate ng-validate>
-                <div class="row">
-                    <fieldset class="form-group col-sm-4">
-                        <input ng-model="teamBuilder.team.name" class="form-control" placeholder="Team Name" required></input>
-                    </fieldset>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <h4>Select Groups</h4>
-                        <div class="list-group scrollable-list">
-                            <a class="list-group-item" ng-repeat="(industryId, industryName) in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industryId)}" ng-click="teamBuilder.toggleIndustryInTeam(industryId)">
-                                {{industryName}}
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <h4>Groups on this team</h4>
-                        <div class="list-group">
-                            <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries">
-                                <div>
-                                    {{gameModel.industries[industry]}} <a class="close" ng-click="teamBuilder.toggleIndustryInTeam(industry)">&times;</a>
-                                </div>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        <input type="submit" class="btn btn-primary pull-right" value="Add Team" />        
-                    </div>
-                </div>
-            </form>
         </div>
-    </div>
-    <div class="row">
-        
     </div>
 </div>

@@ -4,7 +4,6 @@
         var that = this;
         $scope.Math = window.Math;
         $scope.gameModel = gameModel;
-        this.team = this.newTeam();
 
         this.newTeam = function() {
             return {
@@ -49,8 +48,9 @@
         }
 
         this.initialize = function() {
+            this.team = this.newTeam();
             this.load_resources(function() {
-                that.addRandomTeams(2);
+                that.addRandomTeams(3);
             });
         }
 
