@@ -42,8 +42,9 @@
 
             for (var i = 0; i < team.industries.length; ++i) {
                 bill.positions.support.indexOf(team.industries[i]) > -1 && (score += supportScore);
-                bill.positions.opposed.indexOf(team.industries[i]) > -1 && (score += opposeScore);
+                bill.positions.oppose.indexOf(team.industries[i]) > -1 && (score += opposeScore);
             }
+            console.log('SCORE: ', score)
 
             return score;
         };
