@@ -7,10 +7,9 @@
 
         this.finishGame = function() {
             $location.path('/results');
-        }
+        };
 
-        this.addTeams = function(teams) {
-            gameModel.teams = teams;
+        this.setupTeams = function() {
             for (var i = 0; i < gameModel.teams.length; ++i) {
                 gameModel.teams[i]['id'] = i;
             }
@@ -50,7 +49,7 @@
         };
 
         this.initialize = function() {
-            this.addTeams(gameModel.teams)
+            this.setupTeams();
             this.filterUninvolvedBills();
             this.buildTimeline();
         };
