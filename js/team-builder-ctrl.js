@@ -4,6 +4,7 @@
         var that = this;
         $scope.Math = window.Math;
         $scope.gameModel = gameModel;
+        this.team = this.newTeam();
 
         this.newTeam = function() {
             return {
@@ -12,7 +13,7 @@
         };
 
         this.addTeam = function() {
-            this.teams.push(this.team);
+            gameModel.teams.push(this.team);
             this.team = this.newTeam();
         };
 
@@ -26,8 +27,8 @@
                     // of guesses.
                     while (true) {
                         var i = getRandomInt(0, randomTeamPool.length);
-                        if (arrayObjectIndexOf(that.teams, randomTeamPool[i]['name'], 'name') == -1) {
-                            that.teams.push(randomTeamPool[i]);
+                        if (arrayObjectIndexOf(gameModel.teams, randomTeamPool[i]['name'], 'name') == -1) {
+                            gameModel.teams.push(randomTeamPool[i]);
                             break;
                         }
                     }
@@ -55,7 +56,6 @@
         }
 
         this.playGame = function() {
-            gameModel.teams = this.teams;
             $location.path('/play-112th');
         }
 
@@ -73,9 +73,6 @@
         this.industryInTeam = function(industry) {
             return this.team.industries.indexOf(industry) > -1;
         };
-
-        this.teams = [];
-        this.team = this.newTeam();
 
         this.initialize();
     }]);
