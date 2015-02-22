@@ -18,7 +18,6 @@
         };
 
         this.addRandomTeams = function(num) {
-            var that = this;
             $http.get('/data/template-teams.json').success(function(randomTeamPool) {
                 for (var num_teams = 0; num_teams < num; ++num_teams) {
                     // If the random team pool is exausted this loop will
