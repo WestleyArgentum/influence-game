@@ -50,7 +50,7 @@
         }
 
         this.playGame = function() {
-            gameModel.teams.push(this.team);
+            gameModel.teams.unshift(this.team);
             $location.path('/play-112th');
         }
 
