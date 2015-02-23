@@ -44,7 +44,6 @@
                 bill.positions.support.indexOf(team.industries[i]) > -1 && (score += supportScore);
                 bill.positions.oppose.indexOf(team.industries[i]) > -1 && (score += opposeScore);
             }
-            console.log('SCORE: ', score)
 
             return score;
         };

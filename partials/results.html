@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-sm-12">
             <tabset>
-                <tab ng-repeat="team in game.teams" heading="{{team.name}}" active="team.active">
+                <tab ng-repeat="team in gameModel.teams" heading="{{team.name}}" active="team.active">
                     <div class="row">
                         <div class="col-sm-6">
                             <h4>Groups on this team</h4>
@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <tabset class="tabs-left" type="pills" vertical="true">
-                                    <tab ng-repeat="industry in team.industries" heading="{{game.industries[industry]}}">
+                                    <tab ng-repeat="industry in team.industries" heading="{{industry}}">
                                         beep boop bop
                                     </tab>
                             </tabset>
