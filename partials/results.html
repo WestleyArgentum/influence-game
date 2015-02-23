@@ -17,23 +17,17 @@
         <div class="col-sm-12">
             <tabset>
                 <tab ng-repeat="team in gameModel.teams" heading="{{team.name}}" active="team.active">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h4>Groups on this team</h4>
-                        </div>
-                        <div class="col-sm-6">
-                            <h4>Breakdown</h4>
-                        </div>
+
+                    <div class="col-sm-12">
+                        <h4>Groups on this team</h4>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <tabset class="tabs-left" type="pills" vertical="true">
-                                    <tab ng-repeat="industry in team.industries" heading="{{industry}}">
-                                        beep boop bop
-                                    </tab>
-                            </tabset>
-                        </div>
+
+                    <div class="list-group col-sm-12">
+                        <div class="list-group-item" ng-repeat="industry in team.industries">
+                            {{industry}}
+                        </div> 
                     </div>
+
                 </tab>
             </tabset>
         </div>
