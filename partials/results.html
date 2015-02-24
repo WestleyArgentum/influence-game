@@ -24,7 +24,14 @@
 
                     <div class="list-group col-sm-12">
                         <div class="list-group-item" ng-repeat="industry in team.industries">
-                            {{industry}}
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    {{industry}}
+                                </div>
+                                <div class="col-sm-9">
+                                    {{gameModel.industryStats[industry]}}
+                                </div>
+                            </div>
                         </div> 
                     </div>
 
