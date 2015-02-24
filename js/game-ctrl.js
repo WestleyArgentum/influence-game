@@ -96,8 +96,6 @@
         };
 
         this.buildTimeline = function() {
-            this.filterOverlappingVotes();
-
             for (var aid in gameModel.bills) {
                 if (!gameModel.bills.hasOwnProperty(aid)) {
                     continue;
