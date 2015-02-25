@@ -40,7 +40,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-3 team-score" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
-                        {{game.scoreEventForTeam(event, team.id);}}
+                            {{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}
                         </div>
                     </div>
                 </li>
