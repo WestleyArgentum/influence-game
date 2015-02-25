@@ -138,6 +138,15 @@
             }
         };
 
+        this.linkForBill = function(aid) {
+            var bill = gameModel.bills[aid],
+                session = bill.session,
+                prefix = bill.prefix,
+                num = bill.num;
+
+            return 'http://maplight.org/us-congress/bill/' + session + '-' + prefix + '-' + num + '/' + aid + '/total-contributions/'
+        };
+
         this.initialize();
     }]);
 
