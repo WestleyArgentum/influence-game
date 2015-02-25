@@ -19,8 +19,18 @@
                 var supporters = bill.positions.support;
                 var opposers = bill.positions.oppose;
 
-                var supportersScore = bill.passed ? 13 : -5;
-                var opposersScore = bill.passed ? -3 : 15;
+                var supportersScore = 1;
+                var opposersScore = 3;
+
+                if (bill.dateVote) {
+                    if (bill.passed) {
+                        supportersScore += 12;
+                        opposersScore -= 6;
+                    } else {
+                        supportersScore -= 6;
+                        opposersScore += 12;
+                    }
+                }
 
                 for (var i = 0; i < supporters.length; ++i) {
                     var industry = supporters[i];
