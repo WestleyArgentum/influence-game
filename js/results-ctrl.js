@@ -32,6 +32,9 @@
                 var opposersScore = 3;
                 var vote_favors;
 
+                // TODO: This logic is duplicated in the game controller,
+                // the two should really be consolidated into some sort of
+                // ruleset that can be shared.
                 if (bill.dateVote) {
                     if (bill.passed) {
                         supportersScore += 12;

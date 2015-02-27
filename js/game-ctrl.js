@@ -30,6 +30,8 @@
                 supportScore = 1,  // introduced, support
                 opposeScore = 3;  // introduced, oppose
 
+            // NOTE: Currently changes to this logic need to happen both here and
+            // in the results controller.
             if (event.action == 'vote') {
                 if (bill.passed) {
                     supportScore = 12;  // passed, support
