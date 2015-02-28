@@ -26,16 +26,18 @@
         <div class="list-group col-sm-12">
                 <li class="list-group-item" ng-repeat="event in gameModel.timeline">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <h4>
                                 <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
-                                {{gameModel.bills[event.aid].title}}
+                                <a href="{{game.linkForBill(event.aid)}}" target="_blank">{{gameModel.bills[event.aid].title}}</a>
                             </h4>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
-                            <a href="{{game.linkForBill(event.aid)}}" target="_blank">{{game.linkForBill(event.aid)}}</a>
+                        <div class="col-sm-12">
+                            {{gameModel.bills[event.aid].summary}}
+                            <br><br>
+                            Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a>
                         </div>
                     </div>
                     <div class="row">
