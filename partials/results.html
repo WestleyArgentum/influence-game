@@ -15,30 +15,33 @@
 <div class="body-results container">
     <div class="row">
         <div class="col-sm-12">
-            <tabset>
-                <tab ng-repeat="team in gameModel.teams" heading="{{team.name}}" active="team.active">
-
-                    <div class="col-sm-12">
-                        <h4>Groups on this team</h4>
-                    </div>
-
-                    <div class="list-group col-sm-12">
-                        <div class="list-group-item" ng-repeat="industry in team.industries">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    {{industry}}
-                                </div>
-                                <div class="col-sm-9">
-                                    {{gameModel.industryStats[industry]}}
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-
-                </tab>
-            </tabset>
+            <h4>Results</h4>
+        </div>
+        <div class="col-sm-12">
+            *** Overall stats here ***
         </div>
     </div>
 
+    <div class="row">
+        <div ng-repeat="team in gameModel.teams" class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>{{team.name}}</h4>
+                </div>
+                <div class="list-group col-sm-12">
+                    <div class="list-group-item" ng-repeat="industry in team.industries">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                {{industry}}
+                            </div>
+                            <div class="col-sm-8">
+                                {{gameModel.industryStats[industry]}}
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
