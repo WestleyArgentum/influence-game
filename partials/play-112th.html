@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h4>
-                                <span class="glyphicon" ng-class="game.glyphForBill(event.aid, event.action)"></span>
+                                <span class="glyphicon" title="{{gameModel.bills[event.aid].action}}" ng-class="game.glyphForBill(event.aid, event.action)"></span>
                                 <a href="{{game.linkForBill(event.aid)}}" target="_blank">{{gameModel.bills[event.aid].title}}</a>
                             </h4>
                         </div>

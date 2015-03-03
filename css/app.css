@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,900);
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -265,7 +266,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333333;
@@ -5789,21 +5790,22 @@ button.close {
 .team-score {
   text-align: right;
   letter-spacing: 1px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .score-num {
   font-size: 28px;
   font-weight: bold;
-  /*font-family: "Arial Black", Arial, sans-serif;*/
 }
 .score-name {
   text-transform: uppercase;
-  font-size: 10px;
   letter-spacing: 1px;
   color: #53535c;
 }
 span.glyphicon {
-  font-size: 1.2em;
+  font-size: 1em;
+}
+span.glyphicon:hover {
+  cursor: hand;
 }
 .team0 {
   color: #08f;
