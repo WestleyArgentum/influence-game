@@ -17,8 +17,23 @@
 }
 
 .team-score {
-    font-size: 16px;
-    text-align: center;
+    text-align: right;
+    letter-spacing: 1px;
+    font-size: 12px;
+
+}
+
+.score-num {
+    font-size: 28px; 
+    font-weight: bold;
+    /*font-family: "Arial Black", Arial, sans-serif;*/
+}
+
+.score-name {
+    text-transform: uppercase; 
+    font-size: 10px; 
+    letter-spacing: 1px;
+    color: #53535c;
 }
 
 span.glyphicon {
