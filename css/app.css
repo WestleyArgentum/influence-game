@@ -5785,7 +5785,7 @@ h4 {
   line-height: 1.4em;
 }
 .the-score {
-  margin-top: -20px;
+  margin-top: -15px;
 }
 .scrollable-list {
   height: auto;
@@ -5836,7 +5836,7 @@ span.glyphicon {
 .team0.team-score-inline {
   background-color: #0088ff;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
 }
 .team1 {
   color: #ff4000;
@@ -5844,7 +5844,7 @@ span.glyphicon {
 .team1.team-score-inline {
   background-color: #ff4000;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
 }
 .team2 {
   color: #e500ff;
@@ -5852,7 +5852,7 @@ span.glyphicon {
 .team2.team-score-inline {
   background-color: #e500ff;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
 }
 .team3 {
   color: #00ff26;
@@ -5860,5 +5860,5 @@ span.glyphicon {
 .team3.team-score-inline {
   background-color: #00ff26;
   color: #fff;
-  font-size: 28px;
+  font-size: 20px;
 }
