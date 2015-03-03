@@ -20,7 +20,6 @@
     text-align: right;
     letter-spacing: 1px;
     font-size: 14px;
-
 }
 
 .score-num {
@@ -34,22 +33,45 @@
     color: #53535c;
 }
 
+.team-score-inline {
+  margin-top: 2em;
+  padding: 1em;
+  height: 40px;
+}
+
+.stacked-para {
+    padding: 10px 15px 0 15px;
+}
+
 span.glyphicon {
     font-size: 1em;
 }
 
 .team0 {
-    color: #08f;
+    color: hsla(208, 100%, 50%, 1);
+    &.team-score-inline {
+        background-color: hsla(208, 100%, 50%, .15);
+    }
 }
 
 .team1 {
-    color: #ff4000;
+    color: hsla(15, 100%, 50%, 1);
+    &.team-score-inline {
+        background-color: hsla(15, 100%, 50%, .15);
+    }
 }
 
 .team2 {
-    color: #e500ff;
+    color: hsla(294, 100%, 50%, 1);
+    &.team-score-inline {
+        background-color: hsla(294, 100%, 50%, .15);
+    }  
 }
 
 .team3 {
-    color: #00ff26;
+    color: hsla(129, 100%, 50%, 1);
+    &.team-score-inline {
+        background-color: hsla(129, 100%, 50%, .15);
+    }   
 }
+

@@ -24,7 +24,7 @@
 <div class="body-game container">
     <div class="row">
         <div class="list-group col-sm-12">
-                <li class="list-group-item" ng-repeat="event in gameModel.timeline">
+                <li class="list-group-item stacked-para" ng-repeat="event in gameModel.timeline">
                     <div class="row">
                         <div class="col-sm-12">
                             <h4>
@@ -36,12 +36,12 @@
                     <div class="row">
                         <div class="col-sm-12">
                             {{gameModel.bills[event.aid].summary}}
-                            <br><br>
+                            <br>
                             Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3 team-score" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
+                        <div class="col-sm-3 team-score team-score-inline" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
                             {{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}
                         </div>
                     </div>
