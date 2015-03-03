@@ -281,12 +281,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #5723e8;
+  color: #5621e8;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #3b12ac;
+  color: #3b12ab;
   text-decoration: underline;
 }
 a:focus {
@@ -495,10 +495,10 @@ cite {
   color: #999999;
 }
 .text-primary {
-  color: #5723e8;
+  color: #5621e8;
 }
 a.text-primary:hover {
-  color: #4314c4;
+  color: #4314c2;
 }
 .text-success {
   color: #3c763d;
@@ -526,10 +526,10 @@ a.text-danger:hover {
 }
 .bg-primary {
   color: #fff;
-  background-color: #5723e8;
+  background-color: #5621e8;
 }
 a.bg-primary:hover {
-  background-color: #4314c4;
+  background-color: #4314c2;
 }
 .bg-success {
   background-color: #dff0d8;
@@ -2074,8 +2074,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #5723e8;
-  border-color: #4b17db;
+  background-color: #5621e8;
+  border-color: #4b17d9;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -2083,8 +2083,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #4615cd;
-  border-color: #3811a3;
+  background-color: #4615cb;
+  border-color: #3811a2;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -2106,11 +2106,11 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #5723e8;
-  border-color: #4b17db;
+  background-color: #5621e8;
+  border-color: #4b17d9;
 }
 .btn-primary .badge {
-  color: #5723e8;
+  color: #5621e8;
   background-color: #ffffff;
 }
 .btn-success {
@@ -2278,7 +2278,7 @@ fieldset[disabled] .btn-danger.active {
   background-color: #ffffff;
 }
 .btn-link {
-  color: #5723e8;
+  color: #5621e8;
   font-weight: normal;
   cursor: pointer;
   border-radius: 0;
@@ -2299,7 +2299,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #3b12ac;
+  color: #3b12ab;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -3049,7 +3049,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #5723e8;
+  background-color: #5621e8;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3471,7 +3471,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #5723e8;
+  border-color: #5621e8;
 }
 .nav .nav-divider {
   height: 1px;
@@ -3564,7 +3564,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #5723e8;
+  background-color: #5621e8;
 }
 .nav-stacked > li {
   float: none;
@@ -4134,7 +4134,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #5723e8;
+  color: #5621e8;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   margin-left: -1px;
@@ -4154,7 +4154,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #3b12ac;
+  color: #3b12ab;
   background-color: #eeeeee;
   border-color: #dddddd;
 }
@@ -4166,8 +4166,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #5723e8;
-  border-color: #5723e8;
+  background-color: #5621e8;
+  border-color: #5621e8;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4282,11 +4282,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #808080;
 }
 .label-primary {
-  background-color: #5723e8;
+  background-color: #5621e8;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  background-color: #4314c4;
+  background-color: #4314c2;
 }
 .label-success {
   background-color: #5cb85c;
@@ -4349,7 +4349,7 @@ a.badge:focus {
 }
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #5723e8;
+  color: #5621e8;
   background-color: #ffffff;
 }
 .nav-pills > li > a > .badge {
@@ -4409,7 +4409,7 @@ a.list-group-item.active > .badge,
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #5723e8;
+  border-color: #5621e8;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -4521,7 +4521,7 @@ a.thumbnail.active {
   line-height: 20px;
   color: #ffffff;
   text-align: center;
-  background-color: #5723e8;
+  background-color: #5621e8;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -4635,8 +4635,8 @@ a.list-group-item.active:hover,
 a.list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #5723e8;
-  border-color: #5723e8;
+  background-color: #5621e8;
+  border-color: #5621e8;
 }
 a.list-group-item.active .list-group-item-heading,
 a.list-group-item.active:hover .list-group-item-heading,
@@ -4646,7 +4646,7 @@ a.list-group-item.active:focus .list-group-item-heading {
 a.list-group-item.active .list-group-item-text,
 a.list-group-item.active:hover .list-group-item-text,
 a.list-group-item.active:focus .list-group-item-text {
-  color: #e4dcfb;
+  color: #e3dafb;
 }
 .list-group-item-success {
   color: #3c763d;
@@ -4956,18 +4956,18 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #dddddd;
 }
 .panel-primary {
-  border-color: #5723e8;
+  border-color: #5621e8;
 }
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #5723e8;
-  border-color: #5723e8;
+  background-color: #5621e8;
+  border-color: #5621e8;
 }
 .panel-primary > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #5723e8;
+  border-top-color: #5621e8;
 }
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #5723e8;
+  border-bottom-color: #5621e8;
 }
 .panel-success {
   border-color: #d6e9c6;
@@ -5788,7 +5788,31 @@ h4 {
   margin-top: -15px;
 }
 body {
-  color: #53535c;
+  color: #52525b;
+}
+.opponents-group {
+  background-color: rgba(191, 191, 191, 0.1);
+}
+#flag {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  background-color: #5621e8;
+  width: 100%;
+  z-index: 1200;
+}
+.results-link {
+  padding: .2em;
+  text-align: center;
+}
+.results-link a {
+  color: #fff;
+}
+#scores {
+  top: 30px;
+}
+.navbar-form {
+  margin-top: 21px;
 }
 .scrollable-list {
   height: auto;
@@ -5796,10 +5820,10 @@ body {
   overflow-x: hidden;
 }
 .body-team-builder {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 .body-game {
-  padding-top: 100px;
+  padding-top: 160px;
 }
 .body-results {
   padding-top: 60px;
@@ -5808,21 +5832,23 @@ body {
   text-align: right;
   letter-spacing: 1px;
   font-size: 14px;
+  padding: 1.8em 0 .8em 0;
 }
 .score-num {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: bold;
+  margin-bottom: -6px;
 }
 .score-name {
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #53535c;
+  color: #52525b;
 }
 .team-score-inline {
   margin-top: 2em;
   padding: 1em;
   height: 30px;
-  color: #fff;
+  color: #ffffff;
 }
 .team-score-inline[data-score='0'] {
   opacity: .15;
@@ -5834,19 +5860,19 @@ span.glyphicon {
   font-size: 1em;
 }
 .team0 {
-  color: #D126FF;
+  color: #cf24ff;
 }
 .team0.team-score-inline {
-  background-color: #D126FF;
-  color: #fff;
+  background-color: #cf24ff;
+  color: #ffffff;
   font-size: 20px;
 }
 .team1 {
-  color: #1953FF;
+  color: #1a53ff;
 }
 .team1.team-score-inline {
-  background-color: #5723E8;
-  color: #fff;
+  background-color: #1a53ff;
+  color: #ffffff;
   font-size: 20px;
 }
 .team2 {
@@ -5854,14 +5880,14 @@ span.glyphicon {
 }
 .team2.team-score-inline {
   background-color: #00eba8;
-  color: #fff;
+  color: #ffffff;
   font-size: 20px;
 }
 .team3 {
-  color: #23B8E8;
+  color: #21b6e8;
 }
 .team3.team-score-inline {
-  background-color: #23B8E8;
-  color: #fff;
+  background-color: #21b6e8;
+  color: #ffffff;
   font-size: 20px;
 }

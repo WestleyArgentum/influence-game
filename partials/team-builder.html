@@ -1,7 +1,14 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-        <div class="nav navbar-form navbar-right">
-            <input type="submit" class="btn btn-primary" ng-click="teamBuilder.playGame()" value="Start Game" />
+        <div class="row">
+            <div class="col-sm-10">
+                <h2>Prepare to Peddle Your Influence</h2>
+            </div>
+            <div class="col-sm-2">
+                <div class="nav navbar-form navbar-right">
+                    <input type="submit" class="btn btn-primary" ng-click="teamBuilder.playGame()" value="Start Game" />
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -10,12 +17,7 @@
     <div class="row">
 
         <div class="col-sm-6">
-
-            <div class="row">
-                <h2>Build Your Team</h2>
-            </div>
-            
-    
+            <h2>Build Your Team</h2>
             <div class="row">
                 <div class="col-sm-12">
                     <fieldset class="form-group">
@@ -82,14 +84,14 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
+                            <li class="list-group-item  opponents-group" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
                                 {{industry}}
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
+                            <li class="list-group-item  opponents-group" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
                                 {{industry}}
                             </li>
                         </ul>

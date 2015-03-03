@@ -1,5 +1,35 @@
 body {
-    color: #53535c;
+    color: hsla(240, 5%, 34%, 1);
+}
+
+.opponents-group {
+    background-color: hsla(153, 0%, 75%, .1);
+}
+
+#flag {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background-color: hsl(256, 81%, 52%);
+    width: 100%;
+    z-index: 1200;
+}
+
+.results-link {
+    padding: .2em;
+    text-align: center;
+
+    a {
+        color: #fff;
+    }
+}
+
+#scores {
+    top: 30px;
+}
+
+.navbar-form {
+    margin-top: 21px;
 }
 
 .scrollable-list {
@@ -9,11 +39,11 @@ body {
 }
 
 .body-team-builder {
-    padding-top: 50px;
+    padding-top: 100px;
 }
 
 .body-game {
-    padding-top: 100px;
+    padding-top: 160px;
 }
 
 .body-results {
@@ -24,24 +54,26 @@ body {
     text-align: right;
     letter-spacing: 1px;
     font-size: 14px;
+    padding: 1.8em 0 .8em 0;
 }
 
 .score-num {
-    font-size: 28px; 
+    font-size: 36px; 
     font-weight: bold;
+    margin-bottom: -6px;
 }
 
 .score-name {
     text-transform: uppercase; 
     letter-spacing: 1px;
-    color: #53535c;
+    color: hsla(240, 5%, 34%, 1);
 }
 
 .team-score-inline {
   margin-top: 2em;
   padding: 1em;
   height: 30px;
-  color: #fff;
+  color: hsla(0, 0%, 100%, 1);
 
   &[data-score='0']{
     opacity: .15;
@@ -57,39 +89,37 @@ span.glyphicon {
 }
 
 .team0 {
-    color: #D126FF;
+    color: hsla(287, 100%, 57%, 1);
     &.team-score-inline {
-        background-color: #D126FF;
-        color: #fff;
+        background-color: hsla(287, 100%, 57%, 1);
+        color: hsla(0, 0%, 100%, 1);
         font-size: 20px;
     }
 }
 
 .team1 {
-    // color: #5723E8;
-    color: #1953FF;
+    color: hsla(225, 100%, 55%, 1);
     &.team-score-inline {
-        background-color: #5723E8;
-        color: #fff;
+        background-color: hsla(225, 100%, 55%, 1);
+        color: hsla(0, 0%, 100%, 1);
         font-size: 20px;
     }
 }
 
 .team2 {
-    // color: #1953FF;
-    color: #00eba8;
+    color: hsla(163, 100%, 46%, 1);
     &.team-score-inline {
-        background-color: #00eba8;
-        color: #fff;
+        background-color: hsla(163, 100%, 46%, 1);
+        color: hsla(0, 0%, 100%, 1);
         font-size: 20px;
     }  
 }
 
 .team3 {
-    color: #23B8E8;
+    color: hsla(195, 81%, 52%, 1);
     &.team-score-inline {
-        background-color: #23B8E8;
-        color: #fff;
+        background-color: hsla(195, 81%, 52%, 1);
+        color: hsla(0, 0%, 100%, 1);
         font-size: 20px;
     }   
 }
