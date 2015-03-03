@@ -41,8 +41,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3 team-score team-score-inline" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
-                            <p>{{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}</p>
+                        <div class="col-sm-3 team-score team-score-inline" data-score="{{game.scoreEventForTeam(event, team.id)}}" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
+                            <p class="the-score">{{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}</p>
                         </div>
                     </div>
                 </li>

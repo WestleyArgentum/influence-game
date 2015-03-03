@@ -5784,6 +5784,9 @@ h4 {
   margin: 1.2em 0;
   line-height: 1.4em;
 }
+.the-score {
+  margin-top: -20px;
+}
 .scrollable-list {
   height: auto;
   max-height: 400px;
@@ -5815,7 +5818,11 @@ h4 {
 .team-score-inline {
   margin-top: 2em;
   padding: 1em;
-  height: 40px;
+  height: 30px;
+  color: #fff;
+}
+.team-score-inline[data-score='0'] {
+  opacity: .15;
 }
 .stacked-para {
   padding: 10px 15px 0 15px;
@@ -5827,23 +5834,31 @@ span.glyphicon {
   color: #0088ff;
 }
 .team0.team-score-inline {
-  background-color: rgba(0, 136, 255, 0.15);
+  background-color: #0088ff;
+  color: #fff;
+  font-size: 28px;
 }
 .team1 {
   color: #ff4000;
 }
 .team1.team-score-inline {
-  background-color: rgba(255, 64, 0, 0.15);
+  background-color: #ff4000;
+  color: #fff;
+  font-size: 28px;
 }
 .team2 {
   color: #e500ff;
 }
 .team2.team-score-inline {
-  background-color: rgba(229, 0, 255, 0.15);
+  background-color: #e500ff;
+  color: #fff;
+  font-size: 28px;
 }
 .team3 {
   color: #00ff26;
 }
 .team3.team-score-inline {
-  background-color: rgba(0, 255, 38, 0.15);
+  background-color: #00ff26;
+  color: #fff;
+  font-size: 28px;
 }
