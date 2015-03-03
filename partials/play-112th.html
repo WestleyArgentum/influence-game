@@ -35,14 +35,14 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            {{gameModel.bills[event.aid].summary}}
+                            <p>{{gameModel.bills[event.aid].summary}}</p>
                             <br>
-                            Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a>
+                            <p class="sponsor">Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-3 team-score team-score-inline" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
-                            {{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}
+                            <p>{{(score = game.scoreEventForTeam(event, team.id)) > 0 ? score : ''}}</p>
                         </div>
                     </div>
                 </li>
