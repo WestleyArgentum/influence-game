@@ -1,0 +1,125 @@
+body {
+    color: hsla(240, 5%, 34%, 1);
+}
+
+.opponents-group {
+    background-color: hsla(153, 0%, 75%, .1);
+}
+
+#flag {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background-color: hsl(256, 81%, 52%);
+    width: 100%;
+    z-index: 1200;
+}
+
+.results-link {
+    padding: .2em;
+    text-align: center;
+
+    a {
+        color: #fff;
+    }
+}
+
+#scores {
+    top: 30px;
+}
+
+.navbar-form {
+    margin-top: 21px;
+}
+
+.scrollable-list {
+    height: auto;
+    max-height: 400px;
+    overflow-x: hidden;
+}
+
+.body-team-builder {
+    padding-top: 100px;
+}
+
+.body-game {
+    padding-top: 160px;
+}
+
+.body-results {
+    padding-top: 60px;
+}
+
+.team-score {
+    text-align: right;
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding: 1.8em 0 .8em 0;
+}
+
+.score-num {
+    font-size: 36px; 
+    font-weight: bold;
+    margin-bottom: -6px;
+}
+
+.score-name {
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    color: hsla(240, 5%, 34%, 1);
+}
+
+.team-score-inline {
+  margin-top: 2em;
+  padding: 1em;
+  height: 30px;
+  color: hsla(0, 0%, 100%, 1);
+
+  &[data-score='0']{
+    opacity: .15;
+  }
+}
+
+.stacked-para {
+    padding: 10px 15px 0 15px;
+}
+
+span.glyphicon {
+    font-size: 1em;
+}
+
+.team0 {
+    color: hsla(287, 100%, 57%, 1);
+    &.team-score-inline {
+        background-color: hsla(287, 100%, 57%, 1);
+        color: hsla(0, 0%, 100%, 1);
+        font-size: 20px;
+    }
+}
+
+.team1 {
+    color: hsla(225, 100%, 55%, 1);
+    &.team-score-inline {
+        background-color: hsla(225, 100%, 55%, 1);
+        color: hsla(0, 0%, 100%, 1);
+        font-size: 20px;
+    }
+}
+
+.team2 {
+    color: hsla(163, 100%, 46%, 1);
+    &.team-score-inline {
+        background-color: hsla(163, 100%, 46%, 1);
+        color: hsla(0, 0%, 100%, 1);
+        font-size: 20px;
+    }  
+}
+
+.team3 {
+    color: hsla(195, 81%, 52%, 1);
+    &.team-score-inline {
+        background-color: hsla(195, 81%, 52%, 1);
+        color: hsla(0, 0%, 100%, 1);
+        font-size: 20px;
+    }   
+}
