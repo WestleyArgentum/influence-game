@@ -18,17 +18,15 @@
 <div class="body-results container">
     <div class="row">
         <div class="col-sm-12">
-            <h4>Results</h4>
         </div>
         <div class="col-sm-12">
-            *** Overall stats here ***
         </div>
     </div>
 
     <div class="row">
         <div ng-repeat="team in gameModel.teams" class="col-sm-6">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 score-name">
                     <h4>{{team.name}}</h4>
                 </div>
                 <div class="list-group col-sm-12">
@@ -37,8 +35,12 @@
                             <div class="col-sm-4">
                                 {{industry}}
                             </div>
-                            <div class="col-sm-8">
-                                {{gameModel.industryStats[industry]}}
+                            <div class="col-sm-2 score-num" ng-class="{team{{team.id}}: true}">
+                                {{gameModel.industryStats[industry].score}}
+                            </div>
+                            <div class="col-sm-6">
+                                Votes Won: {{gameModel.industryStats[industry].votes_won}} <br>
+                                Votes Lost: {{gameModel.industryStats[industry].votes_lost}} 
                             </div>
                         </div>
                     </div> 
