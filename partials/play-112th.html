@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <h4>
-                                <span class="glyphicon" title="{{gameModel.bills[event.aid].action}}" ng-class="game.glyphForBill(event.aid, event.action)"></span>
+                                <span class="glyphicon" title="{{game.eventDescription(event.aid, event.action)}}" ng-class="game.glyphForBill(event.aid, event.action)"></span>
                                 <a href="{{game.linkForBill(event.aid)}}" target="_blank">{{gameModel.bills[event.aid].title}}</a>
                             </h4>
                         </div>
@@ -32,7 +32,7 @@
                         <div class="col-sm-12">
                             <p>{{gameModel.bills[event.aid].summary}}</p>
                             <br>
-                            <p class="sponsor">Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a></p>
+                            <p class="sponsor">{{game.eventDescription(event.aid, event.action)}} | Sponsor: <a href="{{gameModel.bills[event.aid].sponsor.link}}" target="_blank">{{gameModel.bills[event.aid].sponsor.name}}</a></p>
                         </div>
                     </div>
                     <div class="row">

@@ -140,6 +140,24 @@
             }
         };
 
+        this.eventDescription = function(aid, event) {
+            var bill = gameModel.bills[aid];
+
+            if (event == 'introduced') {
+                if (bill.congress == 'house') {
+                    return 'Introduced in the House';
+                } else {
+                    return 'Introduced in the Senate';
+                }
+            } else {
+                if (bill.congress == 'house') {
+                    return 'Vote in the House';
+                } else {
+                    return 'Vote in the Senate';
+                }
+            }
+        };
+
         this.linkForBill = function(aid) {
             var bill = gameModel.bills[aid],
                 session = bill.session,
