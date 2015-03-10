@@ -15,7 +15,13 @@
                     'bills_supported': 0,
                     'bills_opposed': 0,
                     'votes_won': 0,
-                    'votes_lost': 0
+                    'votes_lost': 0,
+                    'supported_won': 0,
+                    'supported_lost': 0,
+                    'supported_inaction': 0,
+                    'opposed_won': 0,
+                    'opposed_lost': 0,
+                    'opposed_inaction': 0
                 };
             }
 
@@ -30,7 +36,7 @@
 
                 var supportersScore = 1;
                 var opposersScore = 3;
-                var vote_favors;
+                var vote_favors = 'inaction';
 
                 // TODO: This logic is duplicated in the game controller,
                 // the two should really be consolidated into some sort of
@@ -53,8 +59,22 @@
 
                     stats.score += supportersScore;
                     stats.bills_supported += 1;
-                    vote_favors == 'supporters' && (stats.votes_won += 1);
-                    vote_favors == 'opposers' && (stats.votes_lost += 1);
+
+                    switch (vote_favors) {
+                        case 'supporters':
+                            stats.votes_won += 1;
+                            stats.supported_won += 1;
+                            break;
+
+                        case 'opposers':
+                            stats.votes_lost += 1;
+                            stats.supported_lost += 1;
+                            break;
+
+                        case 'inaction':
+                            stats.supported_inaction += 1;
+                            break;
+                    }
                 }
 
                 for (var i = 0; i < opposers.length; ++i) {
@@ -63,8 +83,22 @@
 
                     stats.score += opposersScore;
                     stats.bills_opposed += 1;
-                    vote_favors == 'supporters' && (stats.votes_lost += 1);
-                    vote_favors == 'opposers' && (stats.votes_won += 1);
+
+                    switch (vote_favors) {
+                        case 'supporters':
+                            stats.votes_lost += 1;
+                            stats.opposed_lost += 1;
+                            break;
+
+                        case 'opposers':
+                            stats.votes_won += 1;
+                            stats.opposed_won += 1;
+                            break;
+
+                        case 'inaction':
+                            stats.opposed_inaction += 1;
+                            break;
+                    }
                 }
             }
 
