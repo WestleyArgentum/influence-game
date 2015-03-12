@@ -8,7 +8,7 @@
         };
 
         var width = 400 - margin.left - margin.right;
-        var height = 50 - margin.top - margin.bottom;
+        var height = 70 - margin.top - margin.bottom;
 
         return {
             restrict: 'E',
@@ -21,18 +21,36 @@
                 var industry = scope.industry;
 
                 var dataset = [
-                    [{
-                        x: 0,
-                        y: industry.supported_inaction + industry.opposed_inaction
-                    }],
-                    [{
-                        x: 0,
-                        y: industry.supported_lost + industry.opposed_lost
-                    }],
-                    [{
-                        x: 0,
-                        y: industry.supported_won + industry.opposed_won
-                    }]
+                    [
+                        {
+                            x: 'supported',
+                            y: industry.supported_won
+                        },
+                        {
+                            x: 'opposed',
+                            y: industry.opposed_won
+                        }
+                    ],
+                    [
+                        {
+                            x: 'supported',
+                            y: industry.supported_inaction
+                        },
+                        {
+                            x: 'opposed',
+                            y: industry.opposed_inaction
+                        }
+                    ],
+                    [
+                        {
+                            x: 'supported',
+                            y: industry.supported_lost
+                        },
+                        {
+                            x: 'opposed',
+                            y: industry.opposed_lost
+                        }
+                    ]
                 ];
 
                 var stack = d3.layout.stack();
@@ -72,7 +90,9 @@
                     .attr("x", function (d) {
                         return xScale(d.y0);
                     })
-                    .attr("y", 0)
+                    .attr("y", function (d) {
+                        return d.x == 'supported' ? 0 : 30;
+                    })
                     .attr("height", 20)
                     .attr("width", function (d) {
                         return xScale(d.y);
