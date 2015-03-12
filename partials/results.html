@@ -26,21 +26,17 @@
     <div class="row">
         <div ng-repeat="team in gameModel.teams" class="col-sm-6">
             <div class="row">
-                <div class="col-sm-12 score-name">
+                <div class="col-sm-12 results-name">
                     <h4>{{team.name}}</h4>
                 </div>
                 <div class="list-group col-sm-12">
                     <div class="list-group-item" ng-repeat="industry in team.industries">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-8 industry-name">
                                 {{industry}}
                             </div>
-                            <div class="col-sm-4 score-num" ng-class="{team{{team.id}}: true}">
+                            <div class="col-sm-4 results-score-num" ng-class="{team{{team.id}}: true}">
                                 {{gameModel.industryStats[industry].score}}
-                            </div>
-                            <div class="col-sm-4">
-                                Votes Won: {{gameModel.industryStats[industry].votes_won}} <br>
-                                Votes Lost: {{gameModel.industryStats[industry].votes_lost}} 
                             </div>
                         </div>
                         <div class="row">

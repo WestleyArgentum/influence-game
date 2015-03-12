@@ -5844,6 +5844,21 @@ body {
   letter-spacing: 1px;
   color: #52525b;
 }
+.results-name {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #52525b;
+}
+.industry-name {
+  margin-top: 4px;
+  font-size: 18px;
+}
+.results-score-num {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+}
 .team-score-inline {
   margin-top: 2em;
   padding: 1em;
@@ -5895,5 +5910,4 @@ span.glyphicon {
 .axis line {
   fill: none;
   stroke: none;
-  shape-rendering: crispEdges;
 }
