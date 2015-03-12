@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <fieldset class="form-group">
-                        <input ng-model="teamBuilder.team.name" class="form-control" placeholder="Team Name" required></input>
+                        <input ng-model="teamBuilder.team.name" class="form-control results-name" placeholder="Team Name" required></input>
                     </fieldset>
                 </div>
 
@@ -77,7 +77,7 @@
 
             <div class="list-group-item" ng-repeat="team in gameModel.teams">
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-12 results-name">
                         <h3>{{team.name}}</h3>
                     </div>
                 </div>
