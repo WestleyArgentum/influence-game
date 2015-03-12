@@ -1,10 +1,10 @@
 (function () {
     angular.module('influenceGame').directive('voteVis', function () {
         var margin = {
-            top: 12,
-            left: 15,
+            top: 15,
+            left: 75,
             right: 15,
-            bottom: 14
+            bottom: 15
         };
 
         var width = 400 - margin.left - margin.right;
@@ -97,6 +97,18 @@
                     .attr("width", function (d) {
                         return xScale(d.y);
                     })
+
+                var yScale = d3.scale.ordinal()
+                    .domain(['supported', 'opposed'])
+                    .range([10, 40]);
+
+                var yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient('left');
+
+                svg.append("g")
+                    .attr("class", "axis")
+                    .call(yAxis);
             }
         };
     });
