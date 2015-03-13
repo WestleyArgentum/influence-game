@@ -6,9 +6,9 @@
         <div class="nav">
             <div class="row">
                 <div class="col-sm-3" ng-repeat="team in gameModel.teams">
-                    <li class="team-score" ng-class="{team{{team.id}}: true}">
-                        <div class="score-num">{{game.scoreTeam(team.id)}}</div>
-                        <div class="score-name">{{team.name}}</div>
+                    <li class="play-team-scoreboard" ng-class="{team{{team.id}}: true}">
+                        <div class="play-team-score">{{game.scoreTeam(team.id)}}</div>
+                        <div class="play-team-name">{{team.name}}</div>
                     </li>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3 team-score team-score-inline" data-score="{{game.scoreEventForTeam(event, team.id)}}" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
+                        <div class="col-sm-3 play-team-scoreboard play-team-scoreboard-inline" data-score="{{game.scoreEventForTeam(event, team.id)}}" ng-repeat="team in gameModel.teams" ng-class="{team{{team.id}}: true}">
                             <p class="the-score">{{(score = game.scoreEventForTeam(event, team.id)) != 0 ? score : ''}}</p>
                         </div>
                     </div>

@@ -5790,9 +5790,33 @@ h4 {
 body {
   color: #52525b;
 }
+.stacked-para {
+  padding: 10px 15px 0 15px;
+}
+/* -------
+team builder
+------- */
+.body-team-builder {
+  padding-top: 100px;
+}
 .opponents-group {
   background-color: rgba(191, 191, 191, 0.1);
 }
+.scrollable-list {
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+}
+/* -------
+play game
+------- */
+.body-game {
+  padding-top: 160px;
+}
+span.glyphicon {
+  font-size: 1em;
+}
+/* results page link */
 #flag {
   position: fixed;
   top: 0px;
@@ -5808,76 +5832,93 @@ body {
 .results-link a {
   color: #fff;
 }
-#scores {
-  top: 30px;
-}
-.navbar-form {
-  margin-top: 21px;
-}
-.scrollable-list {
-  height: auto;
-  max-height: 400px;
-  overflow-x: hidden;
-}
-.body-team-builder {
-  padding-top: 100px;
-}
-.body-game {
-  padding-top: 160px;
-}
-.body-results {
-  padding-top: 60px;
-}
-.team-score {
+.play-team-scoreboard {
   text-align: right;
   letter-spacing: 1px;
   font-size: 14px;
   padding: 1.8em 0 .8em 0;
 }
-.score-num {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: -6px;
-}
-.score-name {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #52525b;
-}
-.results-name {
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #52525b;
-}
-.industry-name {
-  margin-top: 4px;
-  font-size: 18px;
-}
-.results-score-num {
-  font-size: 24px;
-  font-weight: bold;
-  text-align: right;
-}
-.team-score-inline {
+.play-team-scoreboard-inline {
   margin-top: 2em;
   padding: 1em;
   height: 30px;
   color: #ffffff;
 }
-.team-score-inline[data-score='0'] {
+.play-team-scoreboard-inline[data-score='0'] {
   opacity: .15;
 }
-.stacked-para {
-  padding: 10px 15px 0 15px;
+/* score bar */
+#scores {
+  top: 30px;
 }
-span.glyphicon {
-  font-size: 1em;
+/* -------
+results
+------- */
+.body-results {
+  padding-top: 60px;
 }
+/* -------
+navbar
+------- */
+.navbar-form {
+  margin-top: 21px;
+}
+/* -------
+team name labels
+------- */
+.builder-team-name {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #52525b;
+}
+.play-team-name {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #52525b;
+}
+.results-team-name {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #52525b;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+/* -------
+industry name labels
+------- */
+.builder-industry-name {
+  margin-top: 4px;
+  font-size: 14px;
+}
+.results-industry-name {
+  margin-top: 4px;
+  font-size: 18px;
+}
+/* -------
+team score labels
+------- */
+.play-team-score {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: -6px;
+}
+/* -------
+industry score labels
+------- */
+.results-industry-score {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+}
+/* -------
+team colors
+------- */
 .team0 {
   color: #cf24ff;
 }
-.team0.team-score-inline {
+.team0.play-team-scoreboard-inline {
   background-color: #cf24ff;
   color: #ffffff;
   font-size: 20px;
@@ -5885,7 +5926,7 @@ span.glyphicon {
 .team1 {
   color: #1a53ff;
 }
-.team1.team-score-inline {
+.team1.play-team-scoreboard-inline {
   background-color: #1a53ff;
   color: #ffffff;
   font-size: 20px;
@@ -5893,7 +5934,7 @@ span.glyphicon {
 .team2 {
   color: #00eba8;
 }
-.team2.team-score-inline {
+.team2.play-team-scoreboard-inline {
   background-color: #00eba8;
   color: #ffffff;
   font-size: 20px;
@@ -5901,11 +5942,14 @@ span.glyphicon {
 .team3 {
   color: #21b6e8;
 }
-.team3.team-score-inline {
+.team3.play-team-scoreboard-inline {
   background-color: #21b6e8;
   color: #ffffff;
   font-size: 20px;
 }
+/* -------
+results industry visualization
+------- */
 .axis path,
 .axis line {
   fill: none;

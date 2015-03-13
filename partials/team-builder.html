@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <fieldset class="form-group">
-                        <input ng-model="teamBuilder.team.name" class="form-control results-name" placeholder="Team Name" required></input>
+                        <input ng-model="teamBuilder.team.name" class="form-control builder-team-name" placeholder="Team Name" required></input>
                     </fieldset>
                 </div>
 
@@ -29,7 +29,7 @@
                     <div class="list-group">
                         <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries.slice(0, Math.ceil(teamBuilder.team.industries.length / 2))">
                             <div class="row">
-                                <div class="col-sm-10 industry-name">
+                                <div class="col-sm-10 builder-industry-name">
                                     {{industry}}
                                 </div>
                                 <div class="col-sm-1">
@@ -44,7 +44,7 @@
                     <div class="list-group">
                         <li class="list-group-item" ng-repeat="industry in teamBuilder.team.industries.slice(Math.ceil(teamBuilder.team.industries.length / 2), teamBuilder.team.industries.length)">
                             <div class="row">
-                                <div class="col-sm-10 industry-name">
+                                <div class="col-sm-10 builder-industry-name">
                                     {{industry}}
                                 </div>
                                 <div class="col-sm-1">
@@ -63,7 +63,7 @@
 
                 <div class="col-sm-12">
                     <div class="list-group scrollable-list">
-                        <a class="list-group-item industry-name" ng-repeat="industry in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industry)}" ng-click="teamBuilder.toggleIndustryInTeam(industry)">
+                        <a class="list-group-item builder-industry-name" ng-repeat="industry in gameModel.industries" ng-class="{'active':teamBuilder.industryInTeam(industry)}" ng-click="teamBuilder.toggleIndustryInTeam(industry)">
                             {{industry}}
                         </a>
                     </div>
@@ -77,21 +77,21 @@
 
             <div class="list-group-item" ng-repeat="team in gameModel.teams">
                 <div class="row">
-                    <div class="col-sm-12 results-name">
-                        <h3>{{team.name}}</h3>
+                    <div class="col-sm-12 builder-team-name">
+                        {{team.name}}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item opponents-group industry-name" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
+                            <li class="list-group-item opponents-group builder-industry-name" ng-repeat="industry in team.industries.slice(0, Math.ceil(team.industries.length / 2))">
                                 {{industry}}
                             </li>
                         </ul>
                     </div>
                     <div class="col-sm-6">
                         <ul class="list-group">
-                            <li class="list-group-item  opponents-group industry-name" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
+                            <li class="list-group-item  opponents-group builder-industry-name" ng-repeat="industry in team.industries.slice(Math.ceil(team.industries.length / 2), team.industries.length)">
                                 {{industry}}
                             </li>
                         </ul>
