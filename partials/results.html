@@ -26,8 +26,11 @@
     <div class="row">
         <div ng-repeat="team in gameModel.teams" class="col-sm-6">
             <div class="row">
-                <div class="col-sm-12 results-team-name">
+                <div class="col-sm-9 results-team-name">
                     {{team.name}}
+                </div>
+                <div class="col-sm-3 results-team-score" ng-class="{team{{team.id}}: true}">
+                    {{team.score}}
                 </div>
                 <div class="col-sm-12 vote-vis-legend">
                     Congress:

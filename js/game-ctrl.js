@@ -20,6 +20,10 @@
             for (var i = 0; i < gameModel.timeline.length; ++i) {
                 score += this.scoreEventForTeam(gameModel.timeline[i], teamId);
             }
+
+            // cache this for use in results, etc
+            gameModel.teams[teamId].score = score;
+
             return score;
         };
 

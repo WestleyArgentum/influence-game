@@ -5904,6 +5904,13 @@ team score labels
   font-weight: bold;
   margin-bottom: -6px;
 }
+.results-team-score {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: right;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
 /* -------
 industry score labels
 ------- */
