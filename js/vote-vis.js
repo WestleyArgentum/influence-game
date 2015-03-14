@@ -70,19 +70,19 @@
 
                 switch(team.id) {
                     case 0:
-                        color = d3.scale.ordinal().range(['hsla(287, 100%, 57%, 1)','hsla(287, 100%, 79%, 1)','hsla(287, 0%, 85%, 1)']);
+                        color = d3.scale.ordinal().range(['hsla(287, 100%, 57%, 1)','hsla(287, 100%, 79%, 1)','hsla(287, 0%, 90%, 1)']);
                         break;
 
                     case 1:
-                        color = d3.scale.ordinal().range(['hsla(225, 100%, 55%, 1)','hsla(225, 100%, 78%, 1)','hsla(287, 0%, 85%, 1)']);
+                        color = d3.scale.ordinal().range(['hsla(225, 100%, 55%, 1)','hsla(225, 100%, 78%, 1)','hsla(287, 0%, 90%, 1)']);
                         break;
 
                     case 2:
-                        color = d3.scale.ordinal().range(['hsla(163, 100%, 46%, 1)','hsla(163, 100%, 75%, 1)','hsla(287, 0%, 85%, 1)']);
+                        color = d3.scale.ordinal().range(['hsla(163, 100%, 46%, 1)','hsla(163, 100%, 75%, 1)','hsla(287, 0%, 90%, 1)']);
                         break;
 
                     case 3:
-                        color = d3.scale.ordinal().range(['hsla(195, 81%, 52%, 1)','hsla(195, 81%, 76%, 1)','hsla(287, 0%, 85%, 1)']);
+                        color = d3.scale.ordinal().range(['hsla(195, 81%, 52%, 1)','hsla(195, 81%, 76%, 1)','hsla(287, 0%, 90%, 1)']);
                         break;
                 }
 
