@@ -14,11 +14,13 @@
             restrict: 'E',
 
             scope: {
-                industry: '='
+                industry: '=',
+                team: '='
             },
 
             link: function (scope, element, attrs) {
                 var industry = scope.industry;
+                var team = scope.team;
 
                 var dataset = [
                     [
@@ -64,7 +66,25 @@
                     })])
                     .range([0, width]);
 
-                var color = d3.scale.category10();
+                var color;
+
+                switch(team.id) {
+                    case 0:
+                        color = d3.scale.ordinal().range(['hsla(287, 100%, 57%, 1)','hsla(287, 100%, 73%, 1)','hsla(287, 100%, 85%, 1)']);
+                        break;
+
+                    case 1:
+                        color = d3.scale.ordinal().range(['hsla(225, 100%, 55%, 1)','hsla(225, 100%, 70%, 1)','hsla(225, 100%, 85%, 1)']);
+                        break;
+
+                    case 2:
+                        color = d3.scale.ordinal().range(['hsla(163, 100%, 46%, 1)','hsla(163, 100%, 67%, 1)','hsla(163, 100%, 85%, 1)']);
+                        break;
+
+                    case 3:
+                        color = d3.scale.ordinal().range(['hsla(195, 81%, 52%, 1)','hsla(195, 81%, 72%, 1)','hsla(195, 81%, 85%, 1)']);
+                        break;
+                }
 
                 var svg = d3.select(element[0])
                     .append("svg")
