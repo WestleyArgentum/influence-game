@@ -5955,3 +5955,63 @@ results industry visualization
   fill: none;
   stroke: none;
 }
+.vote-vis-legend {
+  margin-bottom: 5px;
+}
+.vote-vis-with {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #ccc;
+  margin-left: 15px;
+}
+.vote-vis-with.team0 {
+  background-color: #cf24ff;
+}
+.vote-vis-with.team1 {
+  background-color: #1a53ff;
+}
+.vote-vis-with.team2 {
+  background-color: #00eba8;
+}
+.vote-vis-with.team3 {
+  background-color: #21b6e8;
+}
+.vote-vis-against {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #454;
+  margin-left: 15px;
+}
+.vote-vis-against.team0 {
+  background-color: #e894ff;
+}
+.vote-vis-against.team1 {
+  background-color: #8fabff;
+}
+.vote-vis-against.team2 {
+  background-color: #80ffdb;
+}
+.vote-vis-against.team3 {
+  background-color: #90dbf3;
+}
+.vote-vis-inaction {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-color: #bbb;
+  margin-left: 15px;
+}
+.vote-vis-inaction.team0 {
+  background-color: #e6e6e6;
+}
+.vote-vis-inaction.team1 {
+  background-color: #e6e6e6;
+}
+.vote-vis-inaction.team2 {
+  background-color: #e6e6e6;
+}
+.vote-vis-inaction.team3 {
+  background-color: #e6e6e6;
+}

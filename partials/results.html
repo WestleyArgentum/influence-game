@@ -29,6 +29,15 @@
                 <div class="col-sm-12 results-team-name">
                     {{team.name}}
                 </div>
+                <div class="col-sm-12 vote-vis-legend">
+                    Congress:
+                    <div class="vote-vis-with" ng-class="{team{{team.id}}: true}"></div>
+                    voted with
+                    <div class="vote-vis-against" ng-class="{team{{team.id}}: true}"></div>
+                    voted against
+                    <div class="vote-vis-inaction" ng-class="{team{{team.id}}: true}"></div>
+                    took no action
+                </div>
                 <div class="list-group col-sm-12">
                     <div class="list-group-item" ng-repeat="industry in team.industries">
                         <div class="row">
