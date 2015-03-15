@@ -30,7 +30,7 @@
         };
 
         this.load_resources = function(cb) {
-            resources = 2;
+            var resources = 2;
 
             $http.get('/data/112th-bills.json').success(function(data) {
                 gameModel.bills = data;
