@@ -32,7 +32,7 @@
         this.load_resources = function(cb) {
             var resources = 2;
 
-            $http.get('/data/112th-bills.json').success(function(data) {
+            $http.get(gameModel.billDataFile).success(function(data) {
                 gameModel.bills = data;
                 --resources <= 0 && cb();
             });
