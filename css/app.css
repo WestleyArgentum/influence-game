@@ -5793,8 +5793,10 @@ body {
 .stacked-para {
   padding: 10px 15px 0 15px;
 }
-.alert {
+.alert-info {
   text-align: center;
+  background-color: rgba(86, 33, 232, 0.1);
+  border-color: rgba(86, 33, 232, 0.1);
 }
 /* -------
 team builder
