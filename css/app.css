@@ -5793,6 +5793,9 @@ body {
 .stacked-para {
   padding: 10px 15px 0 15px;
 }
+.alert {
+  text-align: center;
+}
 /* -------
 team builder
 ------- */
@@ -5800,13 +5803,18 @@ team builder
   text-align: center;
   font-size: 48px;
 }
-.game-description {
-  margin-top: 30px;
+.game-subtitle {
   text-align: center;
-  font-size: 14px;
+  font-size: 28px;
+  color: #ccc;
+}
+.game-description {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 16px;
 }
 .start-game-buttons {
-  margin-top: 40px;
+  margin-top: 55px;
 }
 /* -------
 team builder
