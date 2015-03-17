@@ -5799,8 +5799,11 @@ body {
   border-color: rgba(86, 33, 232, 0.1);
 }
 /* -------
-team builder
+title screen
 ------- */
+.body-title-screen {
+  margin-top: 30px;
+}
 .game-title {
   margin-top: 20px;
   text-align: center;
