@@ -11,6 +11,10 @@
             }
         };
 
+        this.isValidTeam = function() {
+            return this.team.industries.length > 0 && this.team.name;
+        };
+
         this.addRandomTeams = function(num) {
             $http.get('/data/template-teams.json').success(function(randomTeamPool) {
                 for (var num_teams = 0; num_teams < num; ++num_teams) {
