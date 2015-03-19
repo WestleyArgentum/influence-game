@@ -5793,6 +5793,35 @@ body {
 .stacked-para {
   padding: 10px 15px 0 15px;
 }
+.alert-info {
+  text-align: center;
+  background-color: rgba(86, 33, 232, 0.1);
+  border-color: rgba(86, 33, 232, 0.1);
+}
+/* -------
+title screen
+------- */
+.body-title-screen {
+  margin-top: 30px;
+}
+.game-title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 48px;
+}
+.game-subtitle {
+  text-align: center;
+  font-size: 28px;
+  color: #ccc;
+}
+.game-description {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 16px;
+}
+.start-game-buttons {
+  margin-top: 55px;
+}
 /* -------
 team builder
 ------- */
@@ -5855,7 +5884,10 @@ span.glyphicon {
 results
 ------- */
 .body-results {
-  padding-top: 67px;
+  padding-top: 60px;
+}
+.results-team-breakdown {
+  padding-top: 20px;
 }
 /* -------
 navbar

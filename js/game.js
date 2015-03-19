@@ -7,7 +7,12 @@
     Routes
     */
     app.config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/team-builder', {
+        $routeProvider.when('/title-screen', {
+            templateUrl: 'partials/title-screen.html',
+            controller: 'TitleScreenController',
+            controllerAs: 'titleScreen'
+        }).
+        when('/team-builder', {
             templateUrl: 'partials/team-builder.html',
             controller: 'TeamBuilderController',
             controllerAs: 'teamBuilder'
@@ -23,7 +28,7 @@
             controllerAs: 'results'
         }).
         otherwise({
-            redirectTo: '/team-builder'
+            redirectTo: '/title-screen'
         });
     }]);
 
