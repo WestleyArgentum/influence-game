@@ -20,7 +20,6 @@
                 var teamSets = templateTeamData['team-sets'];
                 var teamSet = teamSets[getRandomInt(0, teamSets.length)];
 
-                console.log(teamSet)
                 for (var i = 0; i < teamSet.length; ++i) {
                     gameModel.teams.push({
                         name: teamSet[i],
