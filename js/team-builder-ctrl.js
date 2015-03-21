@@ -70,6 +70,7 @@
         }
 
         this.playGame = function() {
+            $scope.loading = true;
             gameModel.teams.unshift(this.team);
             $location.path('/play-112th');
         }

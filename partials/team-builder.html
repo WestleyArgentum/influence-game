@@ -6,7 +6,10 @@
             </div>
             <div class="col-sm-2">
                 <div class="nav navbar-form navbar-right">
-                    <input type="submit" class="btn btn-primary" ng-click="teamBuilder.playGame()" value="Start Game" ng-disabled="!teamBuilder.isValidTeam()" />
+                    <button type="submit" id="start-game-btn" class="btn btn-primary" ng-click="teamBuilder.playGame()" ng-disabled="!teamBuilder.isValidTeam() || loading">
+                        <span ng-hide="loading">Start Game</span>
+                        <span ng-show="loading">Loading...</span>
+                    </button>
                 </div>
             </div>
         </div>
