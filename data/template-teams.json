@@ -1,78 +1,62 @@
-[
-    {
-        "name": "All-Powerful Agriculturalists",
-        "industries": [
+{
+    "template-teams": {
+        "All-Powerful Agriculturalists": [
             "Dairy",
             "Livestock",
             "Agricultural Services/Products",
-            "Misc Agriculture",
             "Crop Production & Basic Processing",
-            "Poultry & Eggs"
-        ]
-    },
-    {
-        "name": "Hawks",
-        "industries": [
+            "Poultry & Eggs",
+            "Misc Agriculture"
+        ],
+        "Hawks": [
             "Gun Rights",
-            "Misc Defense",
             "Defense Aerospace",
             "Defense Electronics",
-            "Foreign & Defense Policy"
-        ]
-    },
-    {
-        "name": "Capitalists",
-        "industries": [
+            "Foreign & Defense Policy",
+            "Misc Defense"
+        ],
+        "Capitalists": [
             "Business Associations",
             "Securities & Investment",
             "Commercial Banks",
-            "Savings & Loans",
             "Finance/Credit Companies",
-            "Credit Unions",
+            "Business Services",
             "Misc Finance"
-        ]
-    },
-    {
-        "name": "Unions",
-        "industries": [
-            "Misc Unions",
+        ],
+        "Unions": [
             "Public Sector Unions",
             "Building Trade Unions",
             "Industrial Unions",
-            "Transportation Unions"
-        ]
-    },
-    {
-        "name": "Titans of Energy",
-        "industries": [
+            "Transportation Unions",
+            "Misc Unions"
+        ],
+        "Titans of Energy": [
             "Oil & Gas",
             "Misc Energy"
-        ]
-    },
-    {
-        "name": "Womens Rights",
-        "industries": [
+        ],
+        "Women's rights": [
             "Women's Issues",
             "Abortion Policy/Pro-Choice"
-        ]
-    },
-    {
-        "name": "Earth Lovers",
-        "industries": [
+        ],
+        "Earth Lovers": [
             "Environmental Svcs/Equipment",
             "Environment"
-        ]
-    },
-    {
-        "name": "Conservative",
-        "industries": [
+        ],
+        "Conservative": [
             "Republican/Conservative"
+        ],
+        "Liberal": [
+            "Democratic/Liberal"
+        ],
+        "Non-Profits": [
+            "Non-Profit Institutions",
+            "Credit Unions"
         ]
     },
-    {
-        "name": "Liberal",
-        "industries": [
-            "Democratic/Liberal"
-        ]
-    }
-]
+    "team-sets": [
+        ["Conservative", "Liberal", "Capitalists"],
+        ["Titans of Energy", "Earth Lovers", "Capitalists"],
+        ["Capitalists", "Unions", "Non-Profits"],
+        ["Titans of Energy", "Women's rights", "Earth Lovers"]
+    ]
+}

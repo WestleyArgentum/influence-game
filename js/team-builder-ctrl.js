@@ -15,21 +15,37 @@
             return this.team.industries.length > 0 && this.team.name;
         };
 
-        this.addRandomTeams = function(num) {
-            $http.get('/data/template-teams.json').success(function(randomTeamPool) {
-                for (var num_teams = 0; num_teams < num; ++num_teams) {
-                    // If the random team pool is exausted this loop will
-                    // run forever. Even if there are still available options
-                    // the loop might need to make an unreasonable number
-                    // of guesses.
-                    while (true) {
-                        var i = getRandomInt(0, randomTeamPool.length);
-                        if (arrayObjectIndexOf(gameModel.teams, randomTeamPool[i]['name'], 'name') == -1) {
-                            gameModel.teams.push(randomTeamPool[i]);
-                            break;
-                        }
-                    }
+        this.addRandomTeams = function() {
+            $http.get('/data/template-teams.json').success(function(templateTeamData) {
+
+                console.log('hi,', templateTeamData)
+                // select randomly from the team-sets
+                var teamSets = templateTeamData['team-sets'];
+                var teamSet = teamSets[getRandomInt(0, teamSets.length)];
+
+                console.log(teamSet)
+                for (var i = 0; i < teamSet.length; ++i) {
+                    console.log(templateTeamData['template-teams'][teamSet[i]])
+                    console.log(teamSet[i]);
+                    gameModel.teams.push({
+                        name: teamSet[i],
+                        industries: templateTeamData['template-teams'][teamSet[i]]
+                    });
                 }
+
+                // for (var num_teams = 0; num_teams < num; ++num_teams) {
+                //     // If the random team pool is exausted this loop will
+                //     // run forever. Even if there are still available options
+                //     // the loop might need to make an unreasonable number
+                //     // of guesses.
+                //     while (true) {
+                //         var i = getRandomInt(0, randomTeamPool.length);
+                //         if (arrayObjectIndexOf(gameModel.teams, randomTeamPool[i]['name'], 'name') == -1) {
+                //             gameModel.teams.push(randomTeamPool[i]);
+                //             break;
+                //         }
+                //     }
+                // }
             });
         };
 
@@ -49,7 +65,7 @@
         this.initialize = function() {
             this.team = this.newTeam();
             this.load_resources(function() {
-                that.addRandomTeams(3);
+                that.addRandomTeams();
             });
         }
 
