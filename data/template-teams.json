@@ -1,6 +1,6 @@
 [
     {
-        "name": "Cow Tippers",
+        "name": "All-Powerful Agriculturalists",
         "industries": [
             "Dairy",
             "Livestock",
@@ -11,7 +11,7 @@
         ]
     },
     {
-        "name": "People who like guns / bombs",
+        "name": "Hawks",
         "industries": [
             "Gun Rights",
             "Misc Defense",
@@ -23,13 +23,13 @@
     {
         "name": "Capitalists",
         "industries": [
+            "Business Associations",
             "Securities & Investment",
             "Commercial Banks",
-            "Misc Finance",
             "Savings & Loans",
             "Finance/Credit Companies",
             "Credit Unions",
-            "Business Associations"
+            "Misc Finance"
         ]
     },
     {
@@ -40,6 +40,39 @@
             "Building Trade Unions",
             "Industrial Unions",
             "Transportation Unions"
+        ]
+    },
+    {
+        "name": "Titans of Energy",
+        "industries": [
+            "Oil & Gas",
+            "Misc Energy"
+        ]
+    },
+    {
+        "name": "Womens Rights",
+        "industries": [
+            "Women's Issues",
+            "Abortion Policy/Pro-Choice"
+        ]
+    },
+    {
+        "name": "Earth Lovers",
+        "industries": [
+            "Environmental Svcs/Equipment",
+            "Environment"
+        ]
+    },
+    {
+        "name": "Conservative",
+        "industries": [
+            "Republican/Conservative"
+        ]
+    },
+    {
+        "name": "Liberal",
+        "industries": [
+            "Democratic/Liberal"
         ]
     }
 ]
