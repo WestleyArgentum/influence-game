@@ -36,7 +36,7 @@
                 gameModel.bills = data;
                 --resources <= 0 && cb();
             });
-            $http.get('/data/crp-categories.json').success(function(data) {
+            $http.get('/data/industries.json').success(function(data) {
                 gameModel.industries = data;
                 --resources <= 0 && cb();
             });
